@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5DD272AAA5F4DFAC1968EE57 /* Pods_Xcode___HaloAPIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167EE90C47F0DA66D67AEDBD /* Pods_Xcode___HaloAPIUITests.framework */; };
+		87F8461453C30F6C9C3C08CA /* Pods_Xcode___HaloAPITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E919633F9A6C1A2C23EBB6A /* Pods_Xcode___HaloAPITests.framework */; };
+		A961199E9BFF992DEA95476D /* Pods_Xcode___HaloAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E4C90D20322E17A71BA1B5 /* Pods_Xcode___HaloAPI.framework */; };
 		F7072A6D235622DA0074F827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A6C235622DA0074F827 /* AppDelegate.swift */; };
 		F7072A6F235622DA0074F827 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A6E235622DA0074F827 /* ViewController.swift */; };
 		F7072A72235622DA0074F827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7072A70235622DA0074F827 /* Main.storyboard */; };
@@ -34,6 +37,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		167EE90C47F0DA66D67AEDBD /* Pods_Xcode___HaloAPIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xcode___HaloAPIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4886261A20DA07C8F161642A /* Pods-Xcode - HaloAPIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPIUITests/Pods-Xcode - HaloAPIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4E919633F9A6C1A2C23EBB6A /* Pods_Xcode___HaloAPITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xcode___HaloAPITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63EB685E87E28229C19831B6 /* Pods-Xcode - HaloAPIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPIUITests/Pods-Xcode - HaloAPIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E14FDE97045D3B98337293B /* Pods-Xcode - HaloAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPITests/Pods-Xcode - HaloAPITests.debug.xcconfig"; sourceTree = "<group>"; };
+		90E4C90D20322E17A71BA1B5 /* Pods_Xcode___HaloAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xcode___HaloAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6757C74B494465219BD5BCB /* Pods-Xcode - HaloAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPI/Pods-Xcode - HaloAPI.release.xcconfig"; sourceTree = "<group>"; };
+		BA5C8522D3DA3B975B413754 /* Pods-Xcode - HaloAPITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPITests/Pods-Xcode - HaloAPITests.release.xcconfig"; sourceTree = "<group>"; };
+		C88A951B4FAFB4501832FCEF /* Pods-Xcode - HaloAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPI/Pods-Xcode - HaloAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		F7072A69235622DA0074F827 /* Xcode - HaloAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xcode - HaloAPI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7072A6C235622DA0074F827 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7072A6E235622DA0074F827 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,10 +54,10 @@
 		F7072A76235622DB0074F827 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7072A78235622DB0074F827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7072A7D235622DB0074F827 /* Xcode - HaloAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Xcode - HaloAPITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7072A81235622DB0074F827 /* Xcode___HaloAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Xcode___HaloAPITests.swift"; sourceTree = "<group>"; };
+		F7072A81235622DB0074F827 /* Xcode___HaloAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xcode___HaloAPITests.swift; sourceTree = "<group>"; };
 		F7072A83235622DB0074F827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7072A88235622DB0074F827 /* Xcode - HaloAPIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Xcode - HaloAPIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7072A8C235622DB0074F827 /* Xcode___HaloAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Xcode___HaloAPIUITests.swift"; sourceTree = "<group>"; };
+		F7072A8C235622DB0074F827 /* Xcode___HaloAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xcode___HaloAPIUITests.swift; sourceTree = "<group>"; };
 		F7072A8E235622DB0074F827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A961199E9BFF992DEA95476D /* Pods_Xcode___HaloAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87F8461453C30F6C9C3C08CA /* Pods_Xcode___HaloAPITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DD272AAA5F4DFAC1968EE57 /* Pods_Xcode___HaloAPIUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		539C0E643D8E1BCA5F12E15C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90E4C90D20322E17A71BA1B5 /* Pods_Xcode___HaloAPI.framework */,
+				4E919633F9A6C1A2C23EBB6A /* Pods_Xcode___HaloAPITests.framework */,
+				167EE90C47F0DA66D67AEDBD /* Pods_Xcode___HaloAPIUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		912501037B17F44D6A3A6272 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C88A951B4FAFB4501832FCEF /* Pods-Xcode - HaloAPI.debug.xcconfig */,
+				B6757C74B494465219BD5BCB /* Pods-Xcode - HaloAPI.release.xcconfig */,
+				6E14FDE97045D3B98337293B /* Pods-Xcode - HaloAPITests.debug.xcconfig */,
+				BA5C8522D3DA3B975B413754 /* Pods-Xcode - HaloAPITests.release.xcconfig */,
+				63EB685E87E28229C19831B6 /* Pods-Xcode - HaloAPIUITests.debug.xcconfig */,
+				4886261A20DA07C8F161642A /* Pods-Xcode - HaloAPIUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		F7072A60235622DA0074F827 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +119,8 @@
 				F7072A80235622DB0074F827 /* Xcode - HaloAPITests */,
 				F7072A8B235622DB0074F827 /* Xcode - HaloAPIUITests */,
 				F7072A6A235622DA0074F827 /* Products */,
+				912501037B17F44D6A3A6272 /* Pods */,
+				539C0E643D8E1BCA5F12E15C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7072A91235622DB0074F827 /* Build configuration list for PBXNativeTarget "Xcode - HaloAPI" */;
 			buildPhases = (
+				03E702DF2035CA79D73EAABD /* [CP] Check Pods Manifest.lock */,
 				F7072A65235622DA0074F827 /* Sources */,
 				F7072A66235622DA0074F827 /* Frameworks */,
 				F7072A67235622DA0074F827 /* Resources */,
+				8D39E51D1928252646AF5F41 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7072A94235622DB0074F827 /* Build configuration list for PBXNativeTarget "Xcode - HaloAPITests" */;
 			buildPhases = (
+				673517607470ED35699DE9D1 /* [CP] Check Pods Manifest.lock */,
 				F7072A79235622DB0074F827 /* Sources */,
 				F7072A7A235622DB0074F827 /* Frameworks */,
 				F7072A7B235622DB0074F827 /* Resources */,
@@ -167,6 +210,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7072A97235622DB0074F827 /* Build configuration list for PBXNativeTarget "Xcode - HaloAPIUITests" */;
 			buildPhases = (
+				94E8EDC46866A5DED571EB1B /* [CP] Check Pods Manifest.lock */,
 				F7072A84235622DB0074F827 /* Sources */,
 				F7072A85235622DB0074F827 /* Frameworks */,
 				F7072A86235622DB0074F827 /* Resources */,
@@ -250,6 +294,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03E702DF2035CA79D73EAABD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Xcode - HaloAPI-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		673517607470ED35699DE9D1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Xcode - HaloAPITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8D39E51D1928252646AF5F41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Xcode - HaloAPI/Pods-Xcode - HaloAPI-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Xcode - HaloAPI/Pods-Xcode - HaloAPI-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		94E8EDC46866A5DED571EB1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Xcode - HaloAPIUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F7072A65235622DA0074F827 /* Sources */ = {
@@ -430,6 +549,7 @@
 		};
 		F7072A92235622DB0074F827 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C88A951B4FAFB4501832FCEF /* Pods-Xcode - HaloAPI.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -447,6 +567,7 @@
 		};
 		F7072A93235622DB0074F827 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B6757C74B494465219BD5BCB /* Pods-Xcode - HaloAPI.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -464,6 +585,7 @@
 		};
 		F7072A95235622DB0074F827 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6E14FDE97045D3B98337293B /* Pods-Xcode - HaloAPITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,6 +606,7 @@
 		};
 		F7072A96235622DB0074F827 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA5C8522D3DA3B975B413754 /* Pods-Xcode - HaloAPITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -504,6 +627,7 @@
 		};
 		F7072A98235622DB0074F827 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63EB685E87E28229C19831B6 /* Pods-Xcode - HaloAPIUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -523,6 +647,7 @@
 		};
 		F7072A99235622DB0074F827 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4886261A20DA07C8F161642A /* Pods-Xcode - HaloAPIUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

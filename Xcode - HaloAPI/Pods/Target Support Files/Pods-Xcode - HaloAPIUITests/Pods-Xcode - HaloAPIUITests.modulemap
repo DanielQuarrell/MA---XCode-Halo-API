@@ -1,0 +1,6 @@
+framework module Pods_Xcode___HaloAPIUITests {
+  umbrella header "Pods-Xcode - HaloAPIUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
