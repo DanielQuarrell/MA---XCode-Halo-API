@@ -27,8 +27,19 @@ class ViewController: UIViewController {
                     //Handle error
                 }
                 else {
-                    if let respString = String.init(data: data!, encoding: .ascii) {
-                        print(respString)
+                    if let jsonObject = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) {
+                        //Determine what is returned from a JSON object
+                        
+                        //if object is an array of any
+                        if jsonObject is [Any] {
+                            print("Array: \(jsonObject)")
+                        }
+                            
+                        //else if object is dictionary of any
+                        else if jsonObject is [String:Any]{
+                            print("Dictionary: \(jsonObject)")
+                        }
+                        
                     }
                 }
             })

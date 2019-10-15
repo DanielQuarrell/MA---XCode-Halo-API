@@ -550,7 +550,7 @@
 				F7072A90235622DB0074F827 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		F7072A91235622DB0074F827 /* Build configuration list for PBXNativeTarget "Xcode - HaloAPI" */ = {
 			isa = XCConfigurationList;
@@ -559,7 +559,7 @@
 				F7072A93235622DB0074F827 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		F7072A94235622DB0074F827 /* Build configuration list for PBXNativeTarget "Xcode - HaloAPITests" */ = {
 			isa = XCConfigurationList;
@@ -568,7 +568,7 @@
 				F7072A96235622DB0074F827 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		F7072A97235622DB0074F827 /* Build configuration list for PBXNativeTarget "Xcode - HaloAPIUITests" */ = {
 			isa = XCConfigurationList;
@@ -577,7 +577,7 @@
 				F7072A99235622DB0074F827 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
