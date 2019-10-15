@@ -39,7 +39,6 @@ class ViewController: UIViewController {
                         else if jsonObject is [String:Any]{
                             print("Dictionary: \(jsonObject)")
                         }
-                        
                     }
                 }
             })
