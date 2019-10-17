@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
@@ -21,28 +22,10 @@ class ViewController: UIViewController {
     }
     
     func fetchURL(url : String) {
-        if let urlToServer = URL.init(string: url) {
-            let task = URLSession.shared.dataTask(with: urlToServer, completionHandler: { (data, response, error) in
-                if error != nil || data == nil {
-                    //Handle error
-                }
-                else {
-                    if let jsonObject = try? JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments) {
-                        //Determine what is returned from a JSON object
-                        
-                        //if object is an array of any
-                        if jsonObject is [Any] {
-                            print("Array: \(jsonObject)")
-                        }
-                            
-                        //else if object is dictionary of any
-                        else if jsonObject is [String:Any]{
-                            print("Dictionary: \(jsonObject)")
-                        }
-                    }
-                }
-            })
-            task.resume()
+        AF.request(url).responseString{ (response) in
+            print (response.value ?? "no value")
+        }.responseJSON{ (response) in
+            print (response.value ?? "no value")
         }
     }
 

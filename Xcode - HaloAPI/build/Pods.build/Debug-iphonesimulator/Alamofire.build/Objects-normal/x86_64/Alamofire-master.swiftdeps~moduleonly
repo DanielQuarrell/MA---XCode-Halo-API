@@ -1,6 +1,6 @@
 version: "Apple Swift version 5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)"
 options: "92edbd5ba4041cea0081f990c088b9ae"
-build_time: [1571183033, 914388000]
+build_time: [1571334480, 683794000]
 inputs:
   "/Users/DannyQ77/Documents/Development/XCode-HaloAPI/Xcode - HaloAPI/Pods/Alamofire/Source/AFError.swift": [1571182169, 191084860]
   "/Users/DannyQ77/Documents/Development/XCode-HaloAPI/Xcode - HaloAPI/Pods/Alamofire/Source/Alamofire.swift": [1571182169, 197293937]
