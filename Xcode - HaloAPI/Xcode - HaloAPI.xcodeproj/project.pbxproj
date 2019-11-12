@@ -17,6 +17,7 @@
 		F7072A77235622DB0074F827 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7072A75235622DB0074F827 /* LaunchScreen.storyboard */; };
 		F7072A82235622DB0074F827 /* Xcode___HaloAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A81235622DB0074F827 /* Xcode___HaloAPITests.swift */; };
 		F7072A8D235622DB0074F827 /* Xcode___HaloAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A8C235622DB0074F827 /* Xcode___HaloAPIUITests.swift */; };
+		F73EAFC1237B5521007238F2 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EAFC0237B5521007238F2 /* NetworkLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		F7072A88235622DB0074F827 /* Xcode - HaloAPIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Xcode - HaloAPIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7072A8C235622DB0074F827 /* Xcode___HaloAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Xcode___HaloAPIUITests.swift"; sourceTree = "<group>"; };
 		F7072A8E235622DB0074F827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F73EAFC0237B5521007238F2 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 		F7E776B5237AEFC300D650DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F73EAFC0237B5521007238F2 /* NetworkLayer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -364,10 +367,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Xcode - HaloAPI/Pods-Xcode - HaloAPI-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -399,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F73EAFC1237B5521007238F2 /* NetworkLayer.swift in Sources */,
 				F7072A6F235622DA0074F827 /* ViewController.swift in Sources */,
 				F7072A6D235622DA0074F827 /* AppDelegate.swift in Sources */,
 			);

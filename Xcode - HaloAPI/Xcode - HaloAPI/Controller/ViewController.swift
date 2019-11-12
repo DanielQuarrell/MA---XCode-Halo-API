@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
@@ -15,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var spartanImage: UIImageView!
     
     var gamertagString : String = ""
+    
+    let haloApi = HaloApiInterface()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +29,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     
+    /*
     func fetchImageURL(url: String, param: [String:Any], imageView: UIImageView) {
         let headers : HTTPHeaders = [
             "Ocp-Apim-Subscription-Key" : "0bf9c5f6ddc64f7c8e34262bfd326b33"
@@ -44,9 +48,10 @@ class ViewController: UIViewController {
             }
         }
     }
+     */
     
     func validateGamertag(gamertag: String){
-        let url : String = "//www.haloapi.com/profile/h5/profiles/" + gamertag + "/appearance"
+        let url : String = "https://www.haloapi.com/profile/h5/profiles/" + gamertag + "/appearance"
         let headers : HTTPHeaders = [
             "Ocp-Apim-Subscription-Key" : "0bf9c5f6ddc64f7c8e34262bfd326b33"
         ]
@@ -55,23 +60,34 @@ class ViewController: UIViewController {
             debugPrint(response)
             
             switch response.result{
-            case .success :
+            case .success(let value) :
                 if(response.response?.statusCode != 404)
                 {
                     print("Gamertag is valid")
+                    
+                    let json = JSON(value)
+                    print(json["Gamertag"].stringValue)
                 }
                 else
                 {
                     print("Please enter valid gamertag")
-                    self.gamertagField.text = ""
+                    self.createValidationAlertBox()
                 }
                 
             case .failure(let error):
                 print("Error : \(error)" )
-                print("Please enter valid gamertag")
-                self.gamertagField.text = ""
+                self.createValidationAlertBox()
             }
         }
+    }
+    
+    func createValidationAlertBox(){
+        let alert = UIAlertController(title: "Gamertag not found", message: "Please enter a valid Xbox Live Gamertag", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Try again", style: .default, handler: nil))
+        
+        self.present(alert, animated: true)
+        self.gamertagField.text = ""
     }
 
     @IBAction func checkStatsButtonPressed(_ sender: Any) {
@@ -79,9 +95,9 @@ class ViewController: UIViewController {
         gamertagField.resignFirstResponder()
         let gamertag : String = gamertagField.text!.replacingOccurrences(of: " ", with: "%20")
         
-        //validateGamertag(gamertag : gamertag)
+        validateGamertag(gamertag: gamertag)
         
-        fetchImageURL(url: "https://www.haloapi.com/profile/h5/profiles/" + gamertag + "/spartan", param: ["size" : 512, "crop" : "full"], imageView: self.spartanImage)
+        haloApi.fetchImageURL(url: "https://www.haloapi.com/profile/h5/profiles/" + gamertag + "/spartan", param: ["size" : 512, "crop" : "full"], imageView: self.spartanImage)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

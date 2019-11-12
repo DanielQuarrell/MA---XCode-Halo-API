@@ -9,6 +9,8 @@ target 'Xcode - HaloAPI' do
 
   # Pods for Xcode - HaloAPI
   pod 'Alamofire', '~> 5.0.0-rc.2'
+  pod 'SwiftyJSON', '~> 5.0.0'
+  pod 'Charts', '~> 3.4.0'
 
   target 'Xcode - HaloAPITests' do
     inherit! :search_paths
