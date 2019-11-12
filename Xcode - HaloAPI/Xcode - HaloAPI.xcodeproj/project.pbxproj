@@ -37,12 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		167EE90C47F0DA66D67AEDBD /* Pods_Xcode___HaloAPIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xcode___HaloAPIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		167EE90C47F0DA66D67AEDBD /* Pods_Xcode___HaloAPIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Xcode___HaloAPIUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4886261A20DA07C8F161642A /* Pods-Xcode - HaloAPIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPIUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPIUITests/Pods-Xcode - HaloAPIUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4E919633F9A6C1A2C23EBB6A /* Pods_Xcode___HaloAPITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xcode___HaloAPITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E919633F9A6C1A2C23EBB6A /* Pods_Xcode___HaloAPITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Xcode___HaloAPITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63EB685E87E28229C19831B6 /* Pods-Xcode - HaloAPIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPIUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPIUITests/Pods-Xcode - HaloAPIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6E14FDE97045D3B98337293B /* Pods-Xcode - HaloAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPITests/Pods-Xcode - HaloAPITests.debug.xcconfig"; sourceTree = "<group>"; };
-		90E4C90D20322E17A71BA1B5 /* Pods_Xcode___HaloAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Xcode___HaloAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90E4C90D20322E17A71BA1B5 /* Pods_Xcode___HaloAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Xcode___HaloAPI.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6757C74B494465219BD5BCB /* Pods-Xcode - HaloAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPI.release.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPI/Pods-Xcode - HaloAPI.release.xcconfig"; sourceTree = "<group>"; };
 		BA5C8522D3DA3B975B413754 /* Pods-Xcode - HaloAPITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPITests/Pods-Xcode - HaloAPITests.release.xcconfig"; sourceTree = "<group>"; };
 		C88A951B4FAFB4501832FCEF /* Pods-Xcode - HaloAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPI/Pods-Xcode - HaloAPI.debug.xcconfig"; sourceTree = "<group>"; };
@@ -54,10 +54,10 @@
 		F7072A76235622DB0074F827 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7072A78235622DB0074F827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7072A7D235622DB0074F827 /* Xcode - HaloAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Xcode - HaloAPITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7072A81235622DB0074F827 /* Xcode___HaloAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xcode___HaloAPITests.swift; sourceTree = "<group>"; };
+		F7072A81235622DB0074F827 /* Xcode___HaloAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Xcode___HaloAPITests.swift"; sourceTree = "<group>"; };
 		F7072A83235622DB0074F827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7072A88235622DB0074F827 /* Xcode - HaloAPIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Xcode - HaloAPIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F7072A8C235622DB0074F827 /* Xcode___HaloAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xcode___HaloAPIUITests.swift; sourceTree = "<group>"; };
+		F7072A8C235622DB0074F827 /* Xcode___HaloAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Xcode___HaloAPIUITests.swift"; sourceTree = "<group>"; };
 		F7072A8E235622DB0074F827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,11 +137,10 @@
 		F7072A6B235622DA0074F827 /* Xcode - HaloAPI */ = {
 			isa = PBXGroup;
 			children = (
-				F7072A6C235622DA0074F827 /* AppDelegate.swift */,
-				F7072A6E235622DA0074F827 /* ViewController.swift */,
-				F7072A70235622DA0074F827 /* Main.storyboard */,
+				F7E776B5237AEFC300D650DE /* Model */,
+				F7E776B6237AEFDF00D650DE /* View */,
+				F7E776B7237AEFF900D650DE /* Controller */,
 				F7072A73235622DB0074F827 /* Assets.xcassets */,
-				F7072A75235622DB0074F827 /* LaunchScreen.storyboard */,
 				F7072A78235622DB0074F827 /* Info.plist */,
 			);
 			path = "Xcode - HaloAPI";
@@ -163,6 +162,31 @@
 				F7072A8E235622DB0074F827 /* Info.plist */,
 			);
 			path = "Xcode - HaloAPIUITests";
+			sourceTree = "<group>";
+		};
+		F7E776B5237AEFC300D650DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F7E776B6237AEFDF00D650DE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F7072A75235622DB0074F827 /* LaunchScreen.storyboard */,
+				F7072A70235622DA0074F827 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F7E776B7237AEFF900D650DE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F7072A6C235622DA0074F827 /* AppDelegate.swift */,
+				F7072A6E235622DA0074F827 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
