@@ -19,6 +19,7 @@
 		F7072A8D235622DB0074F827 /* Xcode___HaloAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A8C235622DB0074F827 /* Xcode___HaloAPIUITests.swift */; };
 		F73EAFC1237B5521007238F2 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EAFC0237B5521007238F2 /* NetworkLayer.swift */; };
 		F766050323840BBD0074B83B /* Stats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F766050223840BBD0074B83B /* Stats.storyboard */; };
+		F784C915238444A90041E0B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F784C914238444A90041E0B3 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		F7072A8E235622DB0074F827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F73EAFC0237B5521007238F2 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		F766050223840BBD0074B83B /* Stats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stats.storyboard; sourceTree = "<group>"; };
+		F784C914238444A90041E0B3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 			children = (
 				F7072A6C235622DA0074F827 /* AppDelegate.swift */,
 				F7072A6E235622DA0074F827 /* HomeViewController.swift */,
+				F784C914238444A90041E0B3 /* TabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F73EAFC1237B5521007238F2 /* NetworkLayer.swift in Sources */,
+				F784C915238444A90041E0B3 /* TabBarController.swift in Sources */,
 				F7072A6F235622DA0074F827 /* HomeViewController.swift in Sources */,
 				F7072A6D235622DA0074F827 /* AppDelegate.swift in Sources */,
 			);

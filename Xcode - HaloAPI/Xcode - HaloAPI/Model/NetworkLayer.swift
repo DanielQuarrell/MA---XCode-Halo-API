@@ -87,7 +87,7 @@ class HaloApiInterface
     
     func fetchEmblemImage(param: [String:Any], completion: @escaping (_ emblemImage: UIImage) -> ())
     {
-        let imageURL : String = profileURL + self.playerName + "/emblem"
+        let imageURL : String = profileURL + playerName + "/emblem"
         //www.haloapi.com/profile/h5/profiles/{player}/spartan[?size][&crop]
         
         fetchImage(imageURL: imageURL, param: param) { (emblemImage) in

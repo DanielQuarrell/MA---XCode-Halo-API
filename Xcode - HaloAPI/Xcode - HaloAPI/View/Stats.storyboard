@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Rmu-YZ-Lta">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="txt-Qg-hZ5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,47 +13,78 @@
         <!--Profile View Controller-->
         <scene sceneID="9sP-Sl-W1p">
             <objects>
-                <viewController storyboardIdentifier="Profile View Controller" id="Rmu-YZ-Lta" userLabel="Profile View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile View Controller" modalTransitionStyle="flipHorizontal" id="Rmu-YZ-Lta" userLabel="Profile View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nGB-vl-ebT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.45803225917028723" green="1" blue="0.60262775729388318" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="zLT-CO-kiz"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Profile" image="ProfileGlyph" id="5PQ-0E-LBO"/>
+                    <navigationItem key="navigationItem" title="Profile" id="3ga-ue-qfZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4g-73-Gxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-105" y="35"/>
+            <point key="canvasLocation" x="-142" y="-410"/>
         </scene>
         <!--Arena View Controller-->
         <scene sceneID="fsm-Pf-LMJ">
             <objects>
-                <viewController storyboardIdentifier="Arena View Controller" id="2LR-SS-WUF" userLabel="Arena View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Arena View Controller" modalTransitionStyle="flipHorizontal" id="2LR-SS-WUF" userLabel="Arena View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncs-bF-EGG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="0.91502484740062873" blue="0.29058555792634022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="zJu-kM-ayd"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Arena" image="ArenaGlyph" id="xVb-id-Xdh"/>
+                    <navigationItem key="navigationItem" title="Arena" id="Cwk-Pf-fvu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDX-7Z-cxG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="689" y="35"/>
+            <point key="canvasLocation" x="638" y="-410"/>
         </scene>
         <!--Warzone View Controller-->
         <scene sceneID="Ao1-Mu-e4S">
             <objects>
-                <viewController storyboardIdentifier="Wazone View Controller" id="1t6-dy-WCZ" userLabel="Warzone View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Wazone View Controller" modalTransitionStyle="flipHorizontal" id="1t6-dy-WCZ" userLabel="Warzone View Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ODY-1S-fur">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.52703934350613979" green="0.59861959124299435" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="asC-Jf-ePk"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Warzone" image="WarzoneGlyph" id="uVJ-gv-xhs"/>
+                    <navigationItem key="navigationItem" title="Warzone" id="iqH-NI-VAg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ijl-13-d7q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1487" y="35"/>
+            <point key="canvasLocation" x="1415" y="-410"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="icx-ol-3Lq">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fOE-FC-G0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tabBarController storyboardIdentifier="Stats Tab Controller" modalTransitionStyle="crossDissolve" id="txt-Qg-hZ5" customClass="TabBarController" customModule="Xcode___HaloAPI" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1M9-W3-hSt"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8TK-Yf-NwN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Rmu-YZ-Lta" kind="relationship" relationship="viewControllers" id="4eH-PW-W5x"/>
+                        <segue destination="2LR-SS-WUF" kind="relationship" relationship="viewControllers" id="Zi8-T1-N05"/>
+                        <segue destination="1t6-dy-WCZ" kind="relationship" relationship="viewControllers" id="fgi-WI-iEN"/>
+                    </connections>
+                </tabBarController>
+            </objects>
+            <point key="canvasLocation" x="638" y="-1182"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ArenaGlyph" width="30.5" height="24"/>
+        <image name="ProfileGlyph" width="31" height="21"/>
+        <image name="WarzoneGlyph" width="29" height="24"/>
+    </resources>
 </document>
