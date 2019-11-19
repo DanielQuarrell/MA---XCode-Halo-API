@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
 
     @IBOutlet weak var gamertagField: UITextField!
     @IBOutlet weak var spartanImage: UIImageView!
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        gamertagField.delegate = self;
+        gamertagField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -95,7 +95,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController : UITextFieldDelegate {
+extension HomeViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

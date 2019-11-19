@@ -11,13 +11,14 @@
 		87F8461453C30F6C9C3C08CA /* Pods_Xcode___HaloAPITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E919633F9A6C1A2C23EBB6A /* Pods_Xcode___HaloAPITests.framework */; };
 		A961199E9BFF992DEA95476D /* Pods_Xcode___HaloAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90E4C90D20322E17A71BA1B5 /* Pods_Xcode___HaloAPI.framework */; };
 		F7072A6D235622DA0074F827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A6C235622DA0074F827 /* AppDelegate.swift */; };
-		F7072A6F235622DA0074F827 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A6E235622DA0074F827 /* ViewController.swift */; };
+		F7072A6F235622DA0074F827 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A6E235622DA0074F827 /* HomeViewController.swift */; };
 		F7072A72235622DA0074F827 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7072A70235622DA0074F827 /* Main.storyboard */; };
 		F7072A74235622DB0074F827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7072A73235622DB0074F827 /* Assets.xcassets */; };
 		F7072A77235622DB0074F827 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7072A75235622DB0074F827 /* LaunchScreen.storyboard */; };
 		F7072A82235622DB0074F827 /* Xcode___HaloAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A81235622DB0074F827 /* Xcode___HaloAPITests.swift */; };
 		F7072A8D235622DB0074F827 /* Xcode___HaloAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A8C235622DB0074F827 /* Xcode___HaloAPIUITests.swift */; };
 		F73EAFC1237B5521007238F2 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EAFC0237B5521007238F2 /* NetworkLayer.swift */; };
+		F766050323840BBD0074B83B /* Stats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F766050223840BBD0074B83B /* Stats.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +50,7 @@
 		C88A951B4FAFB4501832FCEF /* Pods-Xcode - HaloAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Xcode - HaloAPI.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Xcode - HaloAPI/Pods-Xcode - HaloAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		F7072A69235622DA0074F827 /* Xcode - HaloAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xcode - HaloAPI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7072A6C235622DA0074F827 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F7072A6E235622DA0074F827 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F7072A6E235622DA0074F827 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F7072A71235622DA0074F827 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F7072A73235622DB0074F827 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7072A76235622DB0074F827 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 		F7072A8C235622DB0074F827 /* Xcode___HaloAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Xcode___HaloAPIUITests.swift"; sourceTree = "<group>"; };
 		F7072A8E235622DB0074F827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F73EAFC0237B5521007238F2 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		F766050223840BBD0074B83B /* Stats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stats.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			children = (
 				F7072A75235622DB0074F827 /* LaunchScreen.storyboard */,
 				F7072A70235622DA0074F827 /* Main.storyboard */,
+				F766050223840BBD0074B83B /* Stats.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,7 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				F7072A6C235622DA0074F827 /* AppDelegate.swift */,
-				F7072A6E235622DA0074F827 /* ViewController.swift */,
+				F7072A6E235622DA0074F827 /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 			files = (
 				F7072A77235622DB0074F827 /* LaunchScreen.storyboard in Resources */,
 				F7072A74235622DB0074F827 /* Assets.xcassets in Resources */,
+				F766050323840BBD0074B83B /* Stats.storyboard in Resources */,
 				F7072A72235622DA0074F827 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,7 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F73EAFC1237B5521007238F2 /* NetworkLayer.swift in Sources */,
-				F7072A6F235622DA0074F827 /* ViewController.swift in Sources */,
+				F7072A6F235622DA0074F827 /* HomeViewController.swift in Sources */,
 				F7072A6D235622DA0074F827 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
