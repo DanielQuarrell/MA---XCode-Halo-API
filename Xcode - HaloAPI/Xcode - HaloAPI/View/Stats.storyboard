@@ -13,7 +13,7 @@
         <!--Profile View Controller-->
         <scene sceneID="9sP-Sl-W1p">
             <objects>
-                <viewController storyboardIdentifier="Profile View Controller" modalTransitionStyle="flipHorizontal" id="Rmu-YZ-Lta" userLabel="Profile View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Profile View Controller" modalTransitionStyle="flipHorizontal" id="Rmu-YZ-Lta" userLabel="Profile View Controller" customClass="ProfileViewController" customModule="Xcode___HaloAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nGB-vl-ebT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -25,20 +25,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I4g-73-Gxd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-142" y="-410"/>
+            <point key="canvasLocation" x="-143.19999999999999" y="-410.64467766116945"/>
         </scene>
         <!--Arena View Controller-->
         <scene sceneID="fsm-Pf-LMJ">
             <objects>
-                <viewController storyboardIdentifier="Arena View Controller" modalTransitionStyle="flipHorizontal" id="2LR-SS-WUF" userLabel="Arena View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Arena View Controller" modalTransitionStyle="flipHorizontal" id="2LR-SS-WUF" userLabel="Arena View Controller" customClass="ArenaViewController" customModule="Xcode___HaloAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ncs-bF-EGG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRV-57-vM8" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="36" y="70" width="303" height="265"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.91502484740062873" blue="0.29058555792634022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="zJu-kM-ayd"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Arena" image="ArenaGlyph" id="xVb-id-Xdh"/>
                     <navigationItem key="navigationItem" title="Arena" id="Cwk-Pf-fvu"/>
+                    <connections>
+                        <outlet property="killTypePieChartView" destination="kRV-57-vM8" id="XoH-lo-zfB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDX-7Z-cxG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -47,7 +57,7 @@
         <!--Warzone View Controller-->
         <scene sceneID="Ao1-Mu-e4S">
             <objects>
-                <viewController storyboardIdentifier="Wazone View Controller" modalTransitionStyle="flipHorizontal" id="1t6-dy-WCZ" userLabel="Warzone View Controller" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Wazone View Controller" modalTransitionStyle="flipHorizontal" id="1t6-dy-WCZ" userLabel="Warzone View Controller" customClass="WarzoneViewController" customModule="Xcode___HaloAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ODY-1S-fur">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +74,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="icx-ol-3Lq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fOE-FC-G0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="Stats Tab Controller" modalTransitionStyle="crossDissolve" id="txt-Qg-hZ5" customClass="TabBarController" customModule="Xcode___HaloAPI" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1M9-W3-hSt"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8TK-Yf-NwN">
@@ -78,6 +87,7 @@
                         <segue destination="1t6-dy-WCZ" kind="relationship" relationship="viewControllers" id="fgi-WI-iEN"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fOE-FC-G0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="638" y="-1182"/>
         </scene>

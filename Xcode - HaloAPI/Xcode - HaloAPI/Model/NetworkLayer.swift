@@ -14,7 +14,7 @@ class HaloApiInterface
 {
     static let sharedInstance = HaloApiInterface()
     
-    var playerName : String = ""
+    var playerName : String = "Danny%20Q%2077"
     
     let baseURL : String = "https://www.haloapi.com/profile/h5/"
     let profileURL : String = "profiles/"

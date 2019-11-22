@@ -20,6 +20,12 @@
 		F73EAFC1237B5521007238F2 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EAFC0237B5521007238F2 /* NetworkLayer.swift */; };
 		F766050323840BBD0074B83B /* Stats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F766050223840BBD0074B83B /* Stats.storyboard */; };
 		F784C915238444A90041E0B3 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F784C914238444A90041E0B3 /* TabBarController.swift */; };
+		F784C917238809170041E0B3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F784C916238809170041E0B3 /* ProfileViewController.swift */; };
+		F784C919238809570041E0B3 /* ArenaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F784C918238809570041E0B3 /* ArenaViewController.swift */; };
+		F784C91B238809860041E0B3 /* WarzoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F784C91A238809860041E0B3 /* WarzoneViewController.swift */; };
+		F784C91E238837FA0041E0B3 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F784C91D238837FA0041E0B3 /* UIColorHex.swift */; };
+		F7CF9306238871A300F324D2 /* Nexa Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7CF9304238871A300F324D2 /* Nexa Light.otf */; };
+		F7CF9307238871A300F324D2 /* Nexa Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7CF9305238871A300F324D2 /* Nexa Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +71,12 @@
 		F73EAFC0237B5521007238F2 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		F766050223840BBD0074B83B /* Stats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stats.storyboard; sourceTree = "<group>"; };
 		F784C914238444A90041E0B3 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		F784C916238809170041E0B3 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F784C918238809570041E0B3 /* ArenaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaViewController.swift; sourceTree = "<group>"; };
+		F784C91A238809860041E0B3 /* WarzoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarzoneViewController.swift; sourceTree = "<group>"; };
+		F784C91D238837FA0041E0B3 /* UIColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
+		F7CF9304238871A300F324D2 /* Nexa Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Light.otf"; sourceTree = "<group>"; };
+		F7CF9305238871A300F324D2 /* Nexa Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +155,8 @@
 		F7072A6B235622DA0074F827 /* Xcode - HaloAPI */ = {
 			isa = PBXGroup;
 			children = (
+				F7CF92FF2388706800F324D2 /* Fonts */,
+				F784C91C238837DD0041E0B3 /* Extensions */,
 				F7E776B5237AEFC300D650DE /* Model */,
 				F7E776B6237AEFDF00D650DE /* View */,
 				F7E776B7237AEFF900D650DE /* Controller */,
@@ -170,6 +184,23 @@
 			path = "Xcode - HaloAPIUITests";
 			sourceTree = "<group>";
 		};
+		F784C91C238837DD0041E0B3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F784C91D238837FA0041E0B3 /* UIColorHex.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F7CF92FF2388706800F324D2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F7CF9305238871A300F324D2 /* Nexa Bold.otf */,
+				F7CF9304238871A300F324D2 /* Nexa Light.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		F7E776B5237AEFC300D650DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +225,9 @@
 				F7072A6C235622DA0074F827 /* AppDelegate.swift */,
 				F7072A6E235622DA0074F827 /* HomeViewController.swift */,
 				F784C914238444A90041E0B3 /* TabBarController.swift */,
+				F784C916238809170041E0B3 /* ProfileViewController.swift */,
+				F784C918238809570041E0B3 /* ArenaViewController.swift */,
+				F784C91A238809860041E0B3 /* WarzoneViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -306,6 +340,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7CF9306238871A300F324D2 /* Nexa Light.otf in Resources */,
+				F7CF9307238871A300F324D2 /* Nexa Bold.otf in Resources */,
 				F7072A77235622DB0074F827 /* LaunchScreen.storyboard in Resources */,
 				F7072A74235622DB0074F827 /* Assets.xcassets in Resources */,
 				F766050323840BBD0074B83B /* Stats.storyboard in Resources */,
@@ -413,9 +449,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F784C91E238837FA0041E0B3 /* UIColorHex.swift in Sources */,
+				F784C919238809570041E0B3 /* ArenaViewController.swift in Sources */,
 				F73EAFC1237B5521007238F2 /* NetworkLayer.swift in Sources */,
 				F784C915238444A90041E0B3 /* TabBarController.swift in Sources */,
+				F784C917238809170041E0B3 /* ProfileViewController.swift in Sources */,
 				F7072A6F235622DA0074F827 /* HomeViewController.swift in Sources */,
+				F784C91B238809860041E0B3 /* WarzoneViewController.swift in Sources */,
 				F7072A6D235622DA0074F827 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
