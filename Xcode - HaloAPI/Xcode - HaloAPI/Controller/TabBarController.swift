@@ -19,10 +19,11 @@ class TabBarController: UITabBarController {
         
         
         HaloApiInterface.sharedInstance.fetchEmblemImage(param: ["size" : 95]) { (logoImage) in
-            let playerLogo = UIBarButtonItem()
-            playerLogo.image = logoImage
+            let playerLogo : UIBarButtonItem = UIBarButtonItem()
+            playerLogo.image = logoImage.withRenderingMode(.alwaysOriginal)
             
             self.navigationItem.rightBarButtonItem = playerLogo
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
     }
     

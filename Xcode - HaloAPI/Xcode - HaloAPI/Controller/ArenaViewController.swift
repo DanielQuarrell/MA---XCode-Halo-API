@@ -11,68 +11,123 @@ import Charts
 
 class ArenaViewController: UIViewController {
     
-    @IBOutlet weak var killTypePieChartView: PieChartView!
+    //@IBOutlet weak var graphTitlelabel: UILabel!
+    @IBOutlet weak var graphCollectionView: UICollectionView!
     
-    var killTypeDataEntries = [PieChartDataEntry]()
+    @IBOutlet weak var topView: UIView!
+    
+    var graphs = [StatisticGraph]()
+    let cellScale: CGFloat = 0.9
+    
+    var currentPage: Int = 0 {
+        didSet {
+            let graph = self.graphs[self.currentPage]
+            //self.graphTitlelabel.text = graph.title?.uppercased()
+        }
+    }
+    
+    var pieChartDataEntries = [PieChartDataEntry]()
+    var barChartDataSets = [BarChartDataSet]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setUpPieChart()
+        
+        let screenSize = topView.bounds.size
+        let cellWidth = floor(screenSize.width * cellScale)
+        let cellHeight = floor(screenSize.height * cellScale)
+        let insetX = (topView.bounds.width - cellWidth) / 2
+        let insetY = (topView.bounds.height - cellHeight) / 2
+        
+        let layout = graphCollectionView!.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: cellWidth, height: cellHeight)
+        graphCollectionView.contentInset = UIEdgeInsets(top: insetY, left: insetX, bottom: insetY, right: insetX)
+        
+        graphCollectionView.dataSource = self
+        graphCollectionView.delegate = self
+        graphCollectionView.backgroundColor = UIColor.clear
+        
+        //Call to api class here
+        createData()
+        graphs = createGraphs()
+        
+        currentPage = 0
     }
     
-    func setUpPieChart(){
+    func createData(){
+        var pieEntries: [PieChartDataEntry] = Array()
+        pieEntries.append(PieChartDataEntry(value: 10.0, label: "Standard"))
+        pieEntries.append(PieChartDataEntry(value: 5.0, label: "Power"))
+        pieEntries.append(PieChartDataEntry(value: 3.0, label: "Grenade"))
+        pieEntries.append(PieChartDataEntry(value: 2.0, label: "Vehicle"))
+        pieEntries.append(PieChartDataEntry(value: 4.0, label: "Turret"))
+        pieEntries.append(PieChartDataEntry(value: 1.0, label: "Unknown"))
         
-        killTypePieChartView.chartDescription?.enabled = false
-        killTypePieChartView.drawHoleEnabled = true
-        killTypePieChartView.rotationAngle = 0
-        killTypePieChartView.drawEntryLabelsEnabled = false
-        killTypePieChartView.isUserInteractionEnabled = false
-        
-        var entries: [PieChartDataEntry] = Array()
-        entries.append(PieChartDataEntry(value: 10.0, label: "Standard"))
-        entries.append(PieChartDataEntry(value: 5.0, label: "Power"))
-        entries.append(PieChartDataEntry(value: 3.0, label: "Grenade"))
-        entries.append(PieChartDataEntry(value: 2.0, label: "Vehicle"))
-        entries.append(PieChartDataEntry(value: 4.0, label: "Turret"))
-        entries.append(PieChartDataEntry(value: 1.0, label: "Unknown"))
-        
-        let dataSet = PieChartDataSet(entries: entries, label: "")
-        
-        let c1 = UIColor(hex: "#0091D5FF")
-        let c2 = UIColor(hex: "#EA6A47FF")
-        let c3 = UIColor(hex: "#7E909AFF")
-        let c4 = UIColor(hex: "#A5D8DDFF")
-        let c5 = UIColor(hex: "#F1F1F1FF")
-        let c6 = UIColor(hex: "#1F3F49FF")
+        pieChartDataEntries = pieEntries
         
         
-        dataSet.colors = [c1, c2, c3, c4, c5, c6] as! [NSUIColor]
-        dataSet.drawValuesEnabled = false
+        var kills: [BarChartDataEntry] = Array()
+        kills.append(BarChartDataEntry(x: 0, y: 12))
         
-        killTypePieChartView.data = PieChartData(dataSet: dataSet)
+        var deaths: [BarChartDataEntry] = Array()
+        deaths.append(BarChartDataEntry(x: 1, y: 3))
         
-        guard let customFont = UIFont(name: "Nexa Light", size: UIFont.labelFontSize) else
-        {
-            fatalError("""
-                Failed to load the "CustomFont-Light" font.
-                Make sure the font file is included in the project and the font name is spelled correctly.
-                """
-            )
-        }
+        var barDataSets: [BarChartDataSet] = Array()
+        barDataSets.append(BarChartDataSet(entries: kills, label: "Kills"))
+        barDataSets.append(BarChartDataSet(entries: deaths, label: "Deaths"))
         
-        killTypePieChartView.legend.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: customFont)
-        killTypePieChartView.holeColor = UIColor(hex: "#00000000")
+        barChartDataSets = barDataSets
+    }
+    
+    func createGraphs() -> [StatisticGraph] {
+        return [
+            StatisticGraph(title: "Kill", pieChartData: pieChartDataEntries),
+            StatisticGraph(title: "Me", pieChartData: pieChartDataEntries),
+            StatisticGraph(title: "Now", barChartData: barChartDataSets)
+        ]
+    }
+}
+extension ArenaViewController : UICollectionViewDataSource{
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return graphs.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GraphCollectionViewCell.identifier, for: indexPath) as! GraphCollectionViewCell
+        let graph = graphs[indexPath.item]
         
-        let legend = killTypePieChartView.legend
-        legend.orientation = .vertical
-        legend.yEntrySpace = 5
-        legend.horizontalAlignment = .left
-        legend.verticalAlignment = .center
-        legend.textColor = UIColor.black
-        legend.form = .circle
-        legend.yOffset = -(((legend.textHeightMax * CGFloat(legend.entries.count)) + (legend.yEntrySpace * CGFloat(legend.entries.count - 1))) / 2)
+        cell.graph = graph
         
-        killTypePieChartView.legend.maxSizePercent = 0.3
+        return cell
+    }
+}
+
+extension ArenaViewController : UIScrollViewDelegate, UICollectionViewDelegate{
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let layout = self.graphCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        let cellWidth = layout.itemSize.width + layout.minimumLineSpacing
+        
+        var offset = targetContentOffset.pointee
+        let index = (offset.x + scrollView.contentInset.left) / cellWidth
+        let roundedIndex = round(index)
+        
+        offset = CGPoint(x: roundedIndex * cellWidth - scrollView.contentInset.left, y: scrollView.contentInset.top)
+        
+        targetContentOffset.pointee = offset
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let layout = self.graphCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        let pageSide = layout.itemSize.width
+        let pageOffset = scrollView.contentOffset.x
+        currentPage = Int(floor((pageOffset - pageSide / 2) / pageSide) + 1)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GraphCollectionViewCell.identifier, for: indexPath) as! GraphCollectionViewCell
+        cell.updateLegends()
     }
 }
