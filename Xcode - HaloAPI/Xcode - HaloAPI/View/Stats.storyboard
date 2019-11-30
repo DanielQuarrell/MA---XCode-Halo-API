@@ -38,6 +38,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pc8-Zj-0nc">
                                 <rect key="frame" x="0.0" y="20" width="375" height="299"/>
                                 <subviews>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="fh4-lu-exU">
+                                        <rect key="frame" x="168" y="254" width="39" height="37"/>
+                                        <color key="currentPageIndicatorTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </pageControl>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xtj-se-K9O">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -82,8 +86,10 @@
                                     </collectionView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="fh4-lu-exU" firstAttribute="bottom" secondItem="Pc8-Zj-0nc" secondAttribute="bottomMargin" id="A50-8d-PxS"/>
                                     <constraint firstAttribute="trailing" secondItem="xtj-se-K9O" secondAttribute="trailing" id="Rr0-kv-H1F"/>
                                     <constraint firstAttribute="bottom" secondItem="xtj-se-K9O" secondAttribute="bottom" id="c9J-GA-oH7"/>
+                                    <constraint firstItem="fh4-lu-exU" firstAttribute="centerX" secondItem="Pc8-Zj-0nc" secondAttribute="centerX" id="dqq-nk-gLi"/>
                                     <constraint firstItem="xtj-se-K9O" firstAttribute="leading" secondItem="Pc8-Zj-0nc" secondAttribute="leading" id="dxx-1S-Wpj"/>
                                     <constraint firstItem="xtj-se-K9O" firstAttribute="top" secondItem="Pc8-Zj-0nc" secondAttribute="top" id="kP7-er-fV8"/>
                                 </constraints>
@@ -94,6 +100,10 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3c4-JC-ihG">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="2LR-SS-WUF" id="f7y-1T-aRF"/>
+                                            <outlet property="delegate" destination="2LR-SS-WUF" id="8mt-TV-Scw"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -122,6 +132,8 @@
                     <navigationItem key="navigationItem" title="Arena" id="Cwk-Pf-fvu"/>
                     <connections>
                         <outlet property="graphCollectionView" destination="xtj-se-K9O" id="6wN-zW-n7H"/>
+                        <outlet property="pageControl" destination="fh4-lu-exU" id="mkI-Jr-eZD"/>
+                        <outlet property="statTableView" destination="3c4-JC-ihG" id="01y-nE-XfD"/>
                         <outlet property="topView" destination="Pc8-Zj-0nc" id="1Vl-l2-3Ow"/>
                     </connections>
                 </viewController>

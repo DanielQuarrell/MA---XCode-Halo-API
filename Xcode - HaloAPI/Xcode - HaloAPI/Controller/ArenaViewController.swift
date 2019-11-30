@@ -12,29 +12,50 @@ import Charts
 class ArenaViewController: UIViewController {
     
     //@IBOutlet weak var graphTitlelabel: UILabel!
-    @IBOutlet weak var graphCollectionView: UICollectionView!
     
+    @IBOutlet weak var statTableView: UITableView!
+    @IBOutlet weak var graphCollectionView: UICollectionView!
+    @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var topView: UIView!
     
+    var statistics = [Statistic]()
     var graphs = [StatisticGraph]()
-    let cellScale: CGFloat = 0.9
     
-    var currentPage: Int = 0 {
-        didSet {
-            let graph = self.graphs[self.currentPage]
-            //self.graphTitlelabel.text = graph.title?.uppercased()
-        }
-    }
+    let cellXScale: CGFloat = 0.9
+    let cellYScale: CGFloat = 0.6
     
     var pieChartDataEntries = [PieChartDataEntry]()
     var barChartDataSets = [BarChartDataSet]()
     
+    var currentPage: Int = 0 {
+        didSet {
+            //let graph = self.graphs[self.currentPage]
+            
+            self.pageControl.currentPage = self.currentPage
+            //self.graphTitlelabel.text = graph.title?.uppercased()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let screenSize = topView.bounds.size
-        let cellWidth = floor(screenSize.width * cellScale)
-        let cellHeight = floor(screenSize.height * cellScale)
+        setupCollectionView()
+        setupTableView()
+        
+        //Call to api class here
+        createData()
+        graphs = createGraphs()
+        
+        pageControl.numberOfPages = graphs.count
+        currentPage = 0
+
+    }
+    
+    func setupCollectionView() {
+        topView.layoutIfNeeded()
+        let viewSize = topView.bounds.size
+        let cellWidth = floor(viewSize.width * cellXScale)
+        let cellHeight = floor(viewSize.height * cellYScale)
         let insetX = (topView.bounds.width - cellWidth) / 2
         let insetY = (topView.bounds.height - cellHeight) / 2
         
@@ -45,15 +66,14 @@ class ArenaViewController: UIViewController {
         graphCollectionView.dataSource = self
         graphCollectionView.delegate = self
         graphCollectionView.backgroundColor = UIColor.clear
-        
-        //Call to api class here
-        createData()
-        graphs = createGraphs()
-        
-        currentPage = 0
     }
     
-    func createData(){
+    func setupTableView() {
+        let nib = UINib(nibName: "StatTableViewCell", bundle: nil)
+        statTableView.register(nib, forCellReuseIdentifier: "StatTableViewCell")
+    }
+    
+    func createData() {
         var pieEntries: [PieChartDataEntry] = Array()
         pieEntries.append(PieChartDataEntry(value: 10.0, label: "Standard"))
         pieEntries.append(PieChartDataEntry(value: 5.0, label: "Power"))
@@ -76,6 +96,13 @@ class ArenaViewController: UIViewController {
         barDataSets.append(BarChartDataSet(entries: deaths, label: "Deaths"))
         
         barChartDataSets = barDataSets
+        
+        
+        var stats: [Statistic] = Array()
+        stats.append(Statistic(name:"Kills", value: 12))
+        stats.append(Statistic(name:"Deaths", value: 3))
+        
+        statistics = stats
     }
     
     func createGraphs() -> [StatisticGraph] {
@@ -86,6 +113,7 @@ class ArenaViewController: UIViewController {
         ]
     }
 }
+
 extension ArenaViewController : UICollectionViewDataSource{
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -129,5 +157,37 @@ extension ArenaViewController : UIScrollViewDelegate, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GraphCollectionViewCell.identifier, for: indexPath) as! GraphCollectionViewCell
         cell.updateLegends()
+    }
+}
+
+extension ArenaViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Int(statistics.count / 2)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: StatTableViewCell.identifier, for: indexPath) as! StatTableViewCell
+        
+        let index = indexPath.row * 2
+        
+        let leftStatistic = statistics[index]
+        let rightStatistic = statistics[index + 1]
+        
+        if(leftStatistic != nil)
+        {
+            cell.leftStatistic = leftStatistic
+        }
+        if(rightStatistic != nil)
+        {
+            cell.rightStatistic = rightStatistic
+        }
+       
+        return cell
+    }
+}
+
+extension ArenaViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.height / 4
     }
 }
