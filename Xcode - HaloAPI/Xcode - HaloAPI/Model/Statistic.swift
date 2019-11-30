@@ -8,8 +8,8 @@
 
 import Foundation
 
-class Statistic
-{
+class Statistic {
+    
     var name: String?
     var value: Float?
     

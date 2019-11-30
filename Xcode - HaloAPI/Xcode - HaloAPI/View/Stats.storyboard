@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nexa Bold.otf">
+            <string>NexaBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Profile View Controller-->
         <scene sceneID="9sP-Sl-W1p">
@@ -97,21 +102,34 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z3N-g4-CQj" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="319" width="375" height="299"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3c4-JC-ihG">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3c4-JC-ihG">
+                                        <rect key="frame" x="0.0" y="50" width="375" height="249"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="dataSource" destination="2LR-SS-WUF" id="f7y-1T-aRF"/>
                                             <outlet property="delegate" destination="2LR-SS-WUF" id="8mt-TV-Scw"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSP-Md-X6J" userLabel="Graph Title">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="2Qo-0I-m2l"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="3c4-JC-ihG" secondAttribute="trailing" id="0R2-M3-64g"/>
+                                    <constraint firstItem="mSP-Md-X6J" firstAttribute="leading" secondItem="z3N-g4-CQj" secondAttribute="leading" id="D0x-zF-RTe"/>
                                     <constraint firstItem="3c4-JC-ihG" firstAttribute="leading" secondItem="z3N-g4-CQj" secondAttribute="leading" id="HW5-Ik-LoH"/>
-                                    <constraint firstItem="3c4-JC-ihG" firstAttribute="top" secondItem="z3N-g4-CQj" secondAttribute="top" id="Qtk-Tg-htT"/>
+                                    <constraint firstItem="3c4-JC-ihG" firstAttribute="top" secondItem="mSP-Md-X6J" secondAttribute="bottom" id="Ncp-ej-eKA"/>
                                     <constraint firstAttribute="bottom" secondItem="3c4-JC-ihG" secondAttribute="bottom" id="V7b-bq-4D6"/>
+                                    <constraint firstItem="mSP-Md-X6J" firstAttribute="top" secondItem="z3N-g4-CQj" secondAttribute="top" id="cCt-xC-3Th"/>
+                                    <constraint firstAttribute="trailing" secondItem="mSP-Md-X6J" secondAttribute="trailing" id="jaj-YP-bkP"/>
                                 </constraints>
                             </view>
                         </subviews>

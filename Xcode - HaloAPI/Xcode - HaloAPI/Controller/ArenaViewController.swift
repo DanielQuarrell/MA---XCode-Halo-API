@@ -44,7 +44,6 @@ class ArenaViewController: UIViewController {
         
         //Call to api class here
         createData()
-        graphs = createGraphs()
         
         pageControl.numberOfPages = graphs.count
         currentPage = 0
@@ -75,7 +74,7 @@ class ArenaViewController: UIViewController {
     
     func createData() {
         var pieEntries: [PieChartDataEntry] = Array()
-        pieEntries.append(PieChartDataEntry(value: 10.0, label: "Standard"))
+        pieEntries.append(PieChartDataEntry(value: 10.0, label:"Standard"))
         pieEntries.append(PieChartDataEntry(value: 5.0, label: "Power"))
         pieEntries.append(PieChartDataEntry(value: 3.0, label: "Grenade"))
         pieEntries.append(PieChartDataEntry(value: 2.0, label: "Vehicle"))
@@ -99,18 +98,20 @@ class ArenaViewController: UIViewController {
         
         
         var stats: [Statistic] = Array()
-        stats.append(Statistic(name:"Kills", value: 12))
-        stats.append(Statistic(name:"Deaths", value: 3))
+        stats.append(Statistic(name:"Standard", value: 10))
+        stats.append(Statistic(name:"Power", value: 5))
+        stats.append(Statistic(name:"Grenade", value: 3))
+        stats.append(Statistic(name:"Vehicle", value: 2))
+        stats.append(Statistic(name:"Turret", value: 4))
+        stats.append(Statistic(name:"Unknown", value: 1))
         
         statistics = stats
-    }
-    
-    func createGraphs() -> [StatisticGraph] {
-        return [
-            StatisticGraph(title: "Kill", pieChartData: pieChartDataEntries),
-            StatisticGraph(title: "Me", pieChartData: pieChartDataEntries),
-            StatisticGraph(title: "Now", barChartData: barChartDataSets)
-        ]
+        
+        let KDGraph: StatisticGraph = StatisticGraph()
+        KDGraph.createPieChartData(chartData: stats)
+        KDGraph.title = "Kills to deaths"
+        
+        graphs.append(KDGraph)
     }
 }
 

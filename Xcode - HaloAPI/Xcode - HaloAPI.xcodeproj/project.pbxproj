@@ -17,6 +17,7 @@
 		F7072A77235622DB0074F827 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7072A75235622DB0074F827 /* LaunchScreen.storyboard */; };
 		F7072A82235622DB0074F827 /* Xcode___HaloAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A81235622DB0074F827 /* Xcode___HaloAPITests.swift */; };
 		F7072A8D235622DB0074F827 /* Xcode___HaloAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7072A8C235622DB0074F827 /* Xcode___HaloAPIUITests.swift */; };
+		F71CBF6E2392F254003F7B95 /* ArenaStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CBF6D2392F254003F7B95 /* ArenaStatistics.swift */; };
 		F7200DAA2391A333009C5916 /* StatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7200DA82391A333009C5916 /* StatTableViewCell.swift */; };
 		F7200DAB2391A333009C5916 /* StatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7200DA92391A333009C5916 /* StatTableViewCell.xib */; };
 		F7200DAD2391CBA7009C5916 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7200DAC2391CBA7009C5916 /* Statistic.swift */; };
@@ -73,6 +74,7 @@
 		F7072A88235622DB0074F827 /* Xcode - HaloAPIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Xcode - HaloAPIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7072A8C235622DB0074F827 /* Xcode___HaloAPIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Xcode___HaloAPIUITests.swift"; sourceTree = "<group>"; };
 		F7072A8E235622DB0074F827 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F71CBF6D2392F254003F7B95 /* ArenaStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaStatistics.swift; sourceTree = "<group>"; };
 		F7200DA82391A333009C5916 /* StatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTableViewCell.swift; sourceTree = "<group>"; };
 		F7200DA92391A333009C5916 /* StatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatTableViewCell.xib; sourceTree = "<group>"; };
 		F7200DAC2391CBA7009C5916 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 				F73EAFC0237B5521007238F2 /* NetworkLayer.swift */,
 				F7616937238B307A0087C9A9 /* StatisticGraph.swift */,
 				F7200DAC2391CBA7009C5916 /* Statistic.swift */,
+				F71CBF6D2392F254003F7B95 /* ArenaStatistics.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				F784C91B238809860041E0B3 /* WarzoneViewController.swift in Sources */,
 				F7616936238B2E600087C9A9 /* GraphCollectionViewCell.swift in Sources */,
 				F7072A6D235622DA0074F827 /* AppDelegate.swift in Sources */,
+				F71CBF6E2392F254003F7B95 /* ArenaStatistics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
