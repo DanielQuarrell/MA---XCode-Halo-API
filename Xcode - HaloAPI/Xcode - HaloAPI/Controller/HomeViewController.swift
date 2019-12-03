@@ -25,8 +25,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        HaloApiInterface.sharedInstance.getArenaStatistics(completion: {() in })
     }
     
     func createValidationAlertBox(errorCode: String){

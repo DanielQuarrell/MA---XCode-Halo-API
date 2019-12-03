@@ -26,7 +26,13 @@ class StatTableViewCell: UITableViewCell {
         didSet {
             if let leftStatistic = leftStatistic {
                 leftStat.text = leftStatistic.name
-                leftValue.text = String(format: "%.2f", leftStatistic.value!)
+                
+                if(leftStatistic.value == nil) {
+                    leftValue.text = leftStatistic.valueString
+                } else {
+                    leftValue.text = String(format: "%.2f", leftStatistic.value!)
+                }
+                
             } else {
                 leftStat = nil
                 leftValue = nil
@@ -38,7 +44,11 @@ class StatTableViewCell: UITableViewCell {
         didSet {
             if let rightStatistic = rightStatistic {
                 rightStat.text = rightStatistic.name
-                rightValue.text = String(format: "%.2f", rightStatistic.value!)
+                if(rightStatistic.value == nil) {
+                    rightValue.text = rightStatistic.valueString
+                } else {
+                    rightValue.text = String(format: "%.2f", rightStatistic.value!)
+                }
             } else {
                 rightStat = nil
                 rightValue = nil

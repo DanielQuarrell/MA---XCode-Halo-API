@@ -12,9 +12,11 @@ class Statistic {
     
     var name: String?
     var value: Float?
+    var valueString: String?
     
-    init(name: String? = nil, value: Float? = nil){
+    init(name: String? = nil, value: Float? = nil, valueString: String? = nil){
         self.name = name
         self.value = value
+        self.valueString = valueString
     }
 }

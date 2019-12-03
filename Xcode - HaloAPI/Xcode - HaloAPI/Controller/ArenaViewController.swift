@@ -18,8 +18,10 @@ class ArenaViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var topView: UIView!
     
-    var statistics = [Statistic]()
-    var graphs = [StatisticGraph]()
+    var arenaStatistics = ArenaStatistics()
+    
+    var tableStatistics = [Statistic]()
+    var carouselGraphs = [StatisticGraph]()
     
     let cellXScale: CGFloat = 0.9
     let cellYScale: CGFloat = 0.6
@@ -42,10 +44,12 @@ class ArenaViewController: UIViewController {
         setupCollectionView()
         setupTableView()
         
-        //Call to api class here
-        createData()
+        arenaStatistics.getData();
         
-        pageControl.numberOfPages = graphs.count
+        //Call to api class here
+        createSampleData()
+        
+        pageControl.numberOfPages = carouselGraphs.count
         currentPage = 0
 
     }
@@ -72,7 +76,7 @@ class ArenaViewController: UIViewController {
         statTableView.register(nib, forCellReuseIdentifier: "StatTableViewCell")
     }
     
-    func createData() {
+    func createSampleData() {
         var pieEntries: [PieChartDataEntry] = Array()
         pieEntries.append(PieChartDataEntry(value: 10.0, label:"Standard"))
         pieEntries.append(PieChartDataEntry(value: 5.0, label: "Power"))
@@ -105,13 +109,13 @@ class ArenaViewController: UIViewController {
         stats.append(Statistic(name:"Turret", value: 4))
         stats.append(Statistic(name:"Unknown", value: 1))
         
-        statistics = stats
+        tableStatistics = stats
         
         let KDGraph: StatisticGraph = StatisticGraph()
         KDGraph.createPieChartData(chartData: stats)
         KDGraph.title = "Kills to deaths"
         
-        graphs.append(KDGraph)
+        carouselGraphs.append(KDGraph)
     }
 }
 
@@ -121,12 +125,12 @@ extension ArenaViewController : UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return graphs.count
+        return carouselGraphs.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GraphCollectionViewCell.identifier, for: indexPath) as! GraphCollectionViewCell
-        let graph = graphs[indexPath.item]
+        let graph = carouselGraphs[indexPath.item]
         
         cell.graph = graph
         
@@ -163,7 +167,7 @@ extension ArenaViewController : UIScrollViewDelegate, UICollectionViewDelegate{
 
 extension ArenaViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Int(statistics.count / 2)
+        return Int(tableStatistics.count / 2)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -171,8 +175,8 @@ extension ArenaViewController: UITableViewDataSource {
         
         let index = indexPath.row * 2
         
-        let leftStatistic = statistics[index]
-        let rightStatistic = statistics[index + 1]
+        let leftStatistic = tableStatistics[index]
+        let rightStatistic = tableStatistics[index + 1]
         
         if(leftStatistic != nil)
         {

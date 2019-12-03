@@ -26,7 +26,7 @@ class HaloApiInterface {
         "Ocp-Apim-Subscription-Key" : "0bf9c5f6ddc64f7c8e34262bfd326b33"
     ]
     
-    func validateGamertag(gamertag: String, completion: @escaping (_ isValid: Bool, _ errorString: String) -> ()){
+    public func validateGamertag(gamertag: String, completion: @escaping (_ isValid: Bool, _ errorString: String) -> ()){
         let url : String = baseProfileURL + gamertag.replacingOccurrences(of: " ", with: "%20") + "/appearance"
         
         AF.request(url, headers: headers).responseJSON{ (response) in
@@ -58,8 +58,8 @@ class HaloApiInterface {
         }
     }
     
-    func getArenaStatistics(completion: @escaping () -> ()){
-        let url = baseStatURL + serviceRecordURL + arenaURL + playerName
+    private func getJsonStatistics(modeURL: String, completion: @escaping (_ Json: JSON) -> ()) {
+        let url = baseStatURL + serviceRecordURL + modeURL + playerName
         
         AF.request(url, headers: headers).responseJSON{ (response) in
             //debugPrint(response)
@@ -75,10 +75,8 @@ class HaloApiInterface {
                     print("Server Error")
                 default:
                     let json = JSON(value)
-                    let jsonValue = json["ArenaStats"]["ArenaPlaylistStats"]["TotalKills"]
-                    print(jsonValue)
                     
-                    completion()
+                    completion(json)
                 }
                 
             case .failure(let error):
@@ -86,9 +84,20 @@ class HaloApiInterface {
             }
         }
     }
-
     
-    func fetchImage(imageURL: String, param: [String:Any], completion: @escaping (_ image: UIImage) -> ())
+    public func getArenaJsonStatistics(completion: @escaping (_ Json: JSON) -> ()) {
+        getJsonStatistics(modeURL: arenaURL) {(json) in
+            completion(json)
+        }
+    }
+    
+    public func getWarzoneJsonStatistics(completion: @escaping (_ Json: JSON) -> ()) {
+        getJsonStatistics(modeURL: warzoneURL) {(json) in
+            completion(json)
+        }
+    }
+    
+    private func fetchImage(imageURL: String, param: [String:Any], completion: @escaping (_ image: UIImage) -> ())
     {
         let url = baseProfileURL + imageURL
         
@@ -106,7 +115,7 @@ class HaloApiInterface {
         }
     }
     
-    func fetchSpartanImage(param: [String:Any], completion: @escaping (_ spartanImage: UIImage) -> ())
+    public func fetchSpartanImage(param: [String:Any], completion: @escaping (_ spartanImage: UIImage) -> ())
     {
         let imageURL : String = playerName + "/spartan"
         //www.haloapi.com/profile/h5/profiles/{player}/spartan[?size][&crop]
@@ -116,7 +125,7 @@ class HaloApiInterface {
         }
     }
     
-    func fetchEmblemImage(param: [String:Any], completion: @escaping (_ emblemImage: UIImage) -> ())
+    public func fetchEmblemImage(param: [String:Any], completion: @escaping (_ emblemImage: UIImage) -> ())
     {
         let imageURL : String = playerName + "/emblem"
         //www.haloapi.com/profile/h5/profiles/{player}/spartan[?size][&crop]
