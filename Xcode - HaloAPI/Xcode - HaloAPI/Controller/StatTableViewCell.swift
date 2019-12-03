@@ -29,8 +29,12 @@ class StatTableViewCell: UITableViewCell {
                 
                 if(leftStatistic.value == nil) {
                     leftValue.text = leftStatistic.valueString
-                } else {
+                }
+                else if (leftStatistic.isFloat!){
                     leftValue.text = String(format: "%.2f", leftStatistic.value!)
+                }
+                else {
+                    leftValue.text = String(format: "%.0f", leftStatistic.value!)
                 }
                 
             } else {
@@ -44,10 +48,15 @@ class StatTableViewCell: UITableViewCell {
         didSet {
             if let rightStatistic = rightStatistic {
                 rightStat.text = rightStatistic.name
+                
                 if(rightStatistic.value == nil) {
                     rightValue.text = rightStatistic.valueString
-                } else {
+                }
+                else if (rightStatistic.isFloat!) {
                     rightValue.text = String(format: "%.2f", rightStatistic.value!)
+                }
+                else {
+                    rightValue.text = String(format: "%.0f", rightStatistic.value!)
                 }
             } else {
                 rightStat = nil

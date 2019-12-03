@@ -11,7 +11,7 @@ import Charts
 
 class ArenaViewController: UIViewController {
     
-    //@IBOutlet weak var graphTitlelabel: UILabel!
+    @IBOutlet weak var graphTitlelabel: UILabel!
     
     @IBOutlet weak var statTableView: UITableView!
     @IBOutlet weak var graphCollectionView: UICollectionView!
@@ -31,27 +31,31 @@ class ArenaViewController: UIViewController {
     
     var currentPage: Int = 0 {
         didSet {
-            //let graph = self.graphs[self.currentPage]
-            
+            self.updateViews(index: self.currentPage)
             self.pageControl.currentPage = self.currentPage
-            //self.graphTitlelabel.text = graph.title?.uppercased()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        arenaStatistics.getArenaData(completion: {
+            self.setUpPage()
+        })
+        
+        //Call to api class here
+        //createSampleData()
+    }
+    
+    func setUpPage() {
         setupCollectionView()
         setupTableView()
         
-        arenaStatistics.getData();
-        
-        //Call to api class here
-        createSampleData()
+        carouselGraphs = arenaStatistics.getGraphs()
+        self.updateViews(index: 0)
         
         pageControl.numberOfPages = carouselGraphs.count
         currentPage = 0
-
     }
     
     func setupCollectionView() {
@@ -76,46 +80,12 @@ class ArenaViewController: UIViewController {
         statTableView.register(nib, forCellReuseIdentifier: "StatTableViewCell")
     }
     
-    func createSampleData() {
-        var pieEntries: [PieChartDataEntry] = Array()
-        pieEntries.append(PieChartDataEntry(value: 10.0, label:"Standard"))
-        pieEntries.append(PieChartDataEntry(value: 5.0, label: "Power"))
-        pieEntries.append(PieChartDataEntry(value: 3.0, label: "Grenade"))
-        pieEntries.append(PieChartDataEntry(value: 2.0, label: "Vehicle"))
-        pieEntries.append(PieChartDataEntry(value: 4.0, label: "Turret"))
-        pieEntries.append(PieChartDataEntry(value: 1.0, label: "Unknown"))
-        
-        pieChartDataEntries = pieEntries
-        
-        
-        var kills: [BarChartDataEntry] = Array()
-        kills.append(BarChartDataEntry(x: 0, y: 12))
-        
-        var deaths: [BarChartDataEntry] = Array()
-        deaths.append(BarChartDataEntry(x: 1, y: 3))
-        
-        var barDataSets: [BarChartDataSet] = Array()
-        barDataSets.append(BarChartDataSet(entries: kills, label: "Kills"))
-        barDataSets.append(BarChartDataSet(entries: deaths, label: "Deaths"))
-        
-        barChartDataSets = barDataSets
-        
-        
-        var stats: [Statistic] = Array()
-        stats.append(Statistic(name:"Standard", value: 10))
-        stats.append(Statistic(name:"Power", value: 5))
-        stats.append(Statistic(name:"Grenade", value: 3))
-        stats.append(Statistic(name:"Vehicle", value: 2))
-        stats.append(Statistic(name:"Turret", value: 4))
-        stats.append(Statistic(name:"Unknown", value: 1))
-        
-        tableStatistics = stats
-        
-        let KDGraph: StatisticGraph = StatisticGraph()
-        KDGraph.createPieChartData(chartData: stats)
-        KDGraph.title = "Kills to deaths"
-        
-        carouselGraphs.append(KDGraph)
+    func updateViews(index: Int) {
+        if(index >= 0 && index < carouselGraphs.count) {
+            graphTitlelabel.text = self.carouselGraphs[index].title
+            tableStatistics = arenaStatistics.getTableAtIndex(index: index)
+            statTableView.reloadData()
+        }
     }
 }
 

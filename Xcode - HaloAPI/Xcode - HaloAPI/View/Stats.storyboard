@@ -49,7 +49,7 @@
                                     </pageControl>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xtj-se-K9O">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="30" minimumInteritemSpacing="20" id="Ant-8F-wGg">
                                             <size key="itemSize" width="350" height="250"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -66,12 +66,15 @@
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kRV-57-vM8" customClass="PieChartView" customModule="Charts">
                                                             <rect key="frame" x="0.0" y="0.0" width="350" height="250"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                         <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grT-z6-3Q3" customClass="BarChartView" customModule="Charts">
                                                             <rect key="frame" x="0.0" y="0.0" width="350" height="250"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </view>
                                                     </subviews>
                                                 </view>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="grT-z6-3Q3" secondAttribute="trailing" id="A5e-SA-jVB"/>
                                                     <constraint firstAttribute="bottom" secondItem="grT-z6-3Q3" secondAttribute="bottom" id="C0c-Vp-mYb"/>
@@ -111,7 +114,7 @@
                                             <outlet property="delegate" destination="2LR-SS-WUF" id="8mt-TV-Scw"/>
                                         </connections>
                                     </tableView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Graph Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSP-Md-X6J" userLabel="Graph Title">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSP-Md-X6J" userLabel="Graph Title">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="2Qo-0I-m2l"/>
@@ -150,6 +153,7 @@
                     <navigationItem key="navigationItem" title="Arena" id="Cwk-Pf-fvu"/>
                     <connections>
                         <outlet property="graphCollectionView" destination="xtj-se-K9O" id="6wN-zW-n7H"/>
+                        <outlet property="graphTitlelabel" destination="mSP-Md-X6J" id="PGj-7h-s2g"/>
                         <outlet property="pageControl" destination="fh4-lu-exU" id="mkI-Jr-eZD"/>
                         <outlet property="statTableView" destination="3c4-JC-ihG" id="01y-nE-XfD"/>
                         <outlet property="topView" destination="Pc8-Zj-0nc" id="1Vl-l2-3Ow"/>

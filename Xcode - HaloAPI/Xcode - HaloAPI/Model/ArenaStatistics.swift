@@ -20,7 +20,7 @@ class ArenaStatistics {
     
     var tableStatistics = [[Statistic]]()
     
-    public func getArenaData () {
+    public func getArenaData (completion: @escaping () -> ()) {
         HaloApiInterface.sharedInstance.getArenaJsonStatistics(completion: {(json) in
 
             self.getKDA_Data(json: json)
@@ -28,6 +28,8 @@ class ArenaStatistics {
             self.getMatchResult_Data(json: json)
             self.getWeaponCombat_Data(json: json)
             self.getPhysicalCombat_Data(json: json)
+            
+            completion()
         })
     }
     
@@ -45,7 +47,7 @@ class ArenaStatistics {
         self.KDA_graph.title = "Kills to Deaths"
         
         KDA_stats.append(Statistic(name:"Total Assists", value: Float(totalAssists)))
-        KDA_stats.append(Statistic(name:"KD ratio", value: Float(totalKills / totalDeaths)))
+        KDA_stats.append(Statistic(name:"KD ratio", value: Float(totalKills) / Float(totalDeaths), isFloat: true))
         
         self.tableStatistics.append(KDA_stats)
     }
@@ -81,8 +83,8 @@ class ArenaStatistics {
         self.accuracy_graph.createBarChartData(chartData: accuracy_stats)
         self.accuracy_graph.title = "Weapon Accuracy"
         
-        accuracy_stats.append(Statistic(name:"Accuracy", value: Float(shotsFired / shotsLanded)))
-        accuracy_stats.append(Statistic(name:"Total Time Played", value: Float(totalWeaponDamage)))
+        accuracy_stats.append(Statistic(name:"Accuracy", value: Float(shotsFired) / Float(shotsLanded), isFloat: true))
+        accuracy_stats.append(Statistic(name:"Total Weapon Damage", value: Float(totalWeaponDamage)))
         
         self.tableStatistics.append(accuracy_stats)
     }
@@ -117,8 +119,8 @@ class ArenaStatistics {
         matchResults_stats.append(Statistic(name:"Total Games Lost", value: Float(totalGamesLost)))
         matchResults_stats.append(Statistic(name:"Total Games Tied", value: Float(totalGamesTied)))
         
-        self.accuracy_graph.createPieChartData(chartData: matchResults_stats)
-        self.accuracy_graph.title = "Match Results"
+        self.matchResults_graph.createPieChartData(chartData: matchResults_stats)
+        self.matchResults_graph.title = "Match Results"
         
         let totalGamesCompleted = json["Results"][0]["Result"]["ArenaStats"]["TotalGamesCompleted"].intValue
         let timePlayedValue = json["Results"][0]["Result"]["ArenaStats"]["TotalTimePlayed"].stringValue
@@ -130,7 +132,7 @@ class ArenaStatistics {
         timePlayedString = timePlayedString.replacingOccurrences(of: "D", with: "D ")
         timePlayedString = timePlayedString.replacingOccurrences(of: "H", with: "H ")
         
-        matchResults_stats.append(Statistic(name:"Win / Loss Ratio", value: Float(totalGamesWon / totalGamesLost)))
+        matchResults_stats.append(Statistic(name:"Win / Loss Ratio", value: Float(totalGamesWon) / Float(totalGamesLost), isFloat: true))
         matchResults_stats.append(Statistic(name:"Total Time Played", valueString: timePlayedString))
         matchResults_stats.append(Statistic(name:"Total Games Completed", value: Float(totalGamesCompleted)))
         
@@ -140,10 +142,15 @@ class ArenaStatistics {
     public func getGraphs() -> [StatisticGraph] {
         return [
             KDA_graph,
+            accuracy_graph,
             matchResults_graph,
             physicalCombatTotals_graph,
             weaponCombatTotals_graph,
         ]
+    }
+    
+    public func getTableAtIndex(index: Int) -> [Statistic] {
+        return tableStatistics[index]
     }
 }
 

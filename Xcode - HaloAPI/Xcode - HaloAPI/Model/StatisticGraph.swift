@@ -15,7 +15,7 @@ class StatisticGraph {
     var pieChartData: [PieChartDataEntry]?
     var barChartData: [BarChartDataSet]?
     
-    init(title: String? = nil, pieChartData: [PieChartDataEntry]? = nil, barChartData: [BarChartDataSet]? = nil){
+    init(title: String? = nil, pieChartData: [PieChartDataEntry]? = [PieChartDataEntry](), barChartData: [BarChartDataSet]? = [BarChartDataSet]()){
         self.title = title
         self.pieChartData = pieChartData
         self.barChartData = barChartData
