@@ -43,7 +43,7 @@ class ArenaStatistics {
         KDA_stats.append(Statistic(name:"Total Kills", value: Float(totalKills)))
         KDA_stats.append(Statistic(name:"Total Deaths", value: Float(totalDeaths)))
         
-        self.KDA_graph.createBarChartData(chartData: KDA_stats)
+        self.KDA_graph.createPieChartData(chartData: KDA_stats)
         self.KDA_graph.title = "Kills to Deaths"
         
         KDA_stats.append(Statistic(name:"Total Assists", value: Float(totalAssists)))

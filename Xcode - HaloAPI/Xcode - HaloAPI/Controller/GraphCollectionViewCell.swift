@@ -92,6 +92,9 @@ class GraphCollectionViewCell : UICollectionViewCell{
             legend.yOffset = legendOffset
             
             legend.maxSizePercent = 0.5
+            
+            pieChartView.animate(xAxisDuration: 3, yAxisDuration: 3)
+            
         } else {
             pieChartView.isHidden = true
         }
@@ -147,6 +150,9 @@ class GraphCollectionViewCell : UICollectionViewCell{
             legend.textColor = UIColor.black
             legend.form = .circle
             legend.maxSizePercent = 0.5
+            
+            barChartView.animate(xAxisDuration: 3, yAxisDuration: 3)
+            
         } else {
             barChartView.isHidden = true
         }
