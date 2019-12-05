@@ -18,7 +18,7 @@ class WarzoneViewController: UIViewController {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var topView: UIView!
     
-    var arenaStatistics = ArenaStatistics()
+    var warzoneStatistics = WarzoneStatistics()
     
     var tableStatistics = [Statistic]()
     var carouselGraphs = [StatisticGraph]()
@@ -39,19 +39,16 @@ class WarzoneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        arenaStatistics.getArenaData(completion: {
+        warzoneStatistics.getWarzoneData(completion: {
             self.setUpPage()
         })
-        
-        //Call to api class here
-        //createSampleData()
     }
     
     func setUpPage() {
         setupCollectionView()
         setupTableView()
         
-        carouselGraphs = arenaStatistics.getGraphs()
+        carouselGraphs = warzoneStatistics.getGraphs()
         self.updateViews(index: 0)
         
         pageControl.numberOfPages = carouselGraphs.count
@@ -77,13 +74,16 @@ class WarzoneViewController: UIViewController {
     
     func setupTableView() {
         let nib = UINib(nibName: "StatTableViewCell", bundle: nil)
+        
+        statTableView.dataSource = self
+        statTableView.delegate = self
         statTableView.register(nib, forCellReuseIdentifier: "StatTableViewCell")
     }
     
     func updateViews(index: Int) {
         if(index >= 0 && index < carouselGraphs.count) {
             graphTitlelabel.text = self.carouselGraphs[index].title
-            tableStatistics = arenaStatistics.getTableAtIndex(index: index)
+            tableStatistics = warzoneStatistics.getTableAtIndex(index: index)
             statTableView.reloadData()
         }
     }
@@ -148,14 +148,8 @@ extension WarzoneViewController: UITableViewDataSource {
         let leftStatistic = tableStatistics[index]
         let rightStatistic = tableStatistics[index + 1]
         
-        if(leftStatistic != nil)
-        {
-            cell.leftStatistic = leftStatistic
-        }
-        if(rightStatistic != nil)
-        {
-            cell.rightStatistic = rightStatistic
-        }
+        cell.leftStatistic = leftStatistic
+        cell.rightStatistic = rightStatistic
         
         return cell
     }

@@ -42,9 +42,6 @@ class ArenaViewController: UIViewController {
         arenaStatistics.getArenaData(completion: {
             self.setUpPage()
         })
-        
-        //Call to api class here
-        //createSampleData()
     }
     
     func setUpPage() {
@@ -77,6 +74,8 @@ class ArenaViewController: UIViewController {
     
     func setupTableView() {
         let nib = UINib(nibName: "StatTableViewCell", bundle: nil)
+        statTableView.dataSource = self
+        statTableView.delegate = self
         statTableView.register(nib, forCellReuseIdentifier: "StatTableViewCell")
     }
     
@@ -148,15 +147,9 @@ extension ArenaViewController: UITableViewDataSource {
         let leftStatistic = tableStatistics[index]
         let rightStatistic = tableStatistics[index + 1]
         
-        if(leftStatistic != nil)
-        {
-            cell.leftStatistic = leftStatistic
-        }
-        if(rightStatistic != nil)
-        {
-            cell.rightStatistic = rightStatistic
-        }
-       
+        cell.leftStatistic = leftStatistic
+        cell.rightStatistic = rightStatistic
+        
         return cell
     }
 }

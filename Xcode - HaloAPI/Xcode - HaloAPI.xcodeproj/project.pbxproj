@@ -30,6 +30,8 @@
 		F784C919238809570041E0B3 /* ArenaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F784C918238809570041E0B3 /* ArenaViewController.swift */; };
 		F784C91B238809860041E0B3 /* WarzoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F784C91A238809860041E0B3 /* WarzoneViewController.swift */; };
 		F784C91E238837FA0041E0B3 /* UIColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = F784C91D238837FA0041E0B3 /* UIColorHex.swift */; };
+		F7AA99082398573E0034E327 /* WarzoneStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AA99072398573E0034E327 /* WarzoneStatistics.swift */; };
+		F7AA990C2398772C0034E327 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AA990B2398772C0034E327 /* GradientView.swift */; };
 		F7CF9306238871A300F324D2 /* Nexa Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7CF9304238871A300F324D2 /* Nexa Light.otf */; };
 		F7CF9307238871A300F324D2 /* Nexa Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F7CF9305238871A300F324D2 /* Nexa Bold.otf */; };
 /* End PBXBuildFile section */
@@ -87,6 +89,8 @@
 		F784C918238809570041E0B3 /* ArenaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArenaViewController.swift; sourceTree = "<group>"; };
 		F784C91A238809860041E0B3 /* WarzoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarzoneViewController.swift; sourceTree = "<group>"; };
 		F784C91D238837FA0041E0B3 /* UIColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHex.swift; sourceTree = "<group>"; };
+		F7AA99072398573E0034E327 /* WarzoneStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarzoneStatistics.swift; sourceTree = "<group>"; };
+		F7AA990B2398772C0034E327 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		F7CF9304238871A300F324D2 /* Nexa Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Light.otf"; sourceTree = "<group>"; };
 		F7CF9305238871A300F324D2 /* Nexa Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nexa Bold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,6 +224,7 @@
 				F7616937238B307A0087C9A9 /* StatisticGraph.swift */,
 				F7200DAC2391CBA7009C5916 /* Statistic.swift */,
 				F71CBF6D2392F254003F7B95 /* ArenaStatistics.swift */,
+				F7AA99072398573E0034E327 /* WarzoneStatistics.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,6 +251,7 @@
 				F784C91A238809860041E0B3 /* WarzoneViewController.swift */,
 				F7616935238B2E600087C9A9 /* GraphCollectionViewCell.swift */,
 				F7200DA82391A333009C5916 /* StatTableViewCell.swift */,
+				F7AA990B2398772C0034E327 /* GradientView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -470,9 +476,11 @@
 			files = (
 				F7200DAA2391A333009C5916 /* StatTableViewCell.swift in Sources */,
 				F784C91E238837FA0041E0B3 /* UIColorHex.swift in Sources */,
+				F7AA990C2398772C0034E327 /* GradientView.swift in Sources */,
 				F784C919238809570041E0B3 /* ArenaViewController.swift in Sources */,
 				F73EAFC1237B5521007238F2 /* NetworkLayer.swift in Sources */,
 				F7616938238B307A0087C9A9 /* StatisticGraph.swift in Sources */,
+				F7AA99082398573E0034E327 /* WarzoneStatistics.swift in Sources */,
 				F784C915238444A90041E0B3 /* TabBarController.swift in Sources */,
 				F7200DAD2391CBA7009C5916 /* Statistic.swift in Sources */,
 				F784C917238809170041E0B3 /* ProfileViewController.swift in Sources */,
@@ -657,12 +665,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WTX54F8QPV;
 				INFOPLIST_FILE = "Xcode - HaloAPI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.daniel.quarrell.Xcode---HaloAPI";
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.quarrell.XcodeHaloAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -675,12 +684,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WTX54F8QPV;
 				INFOPLIST_FILE = "Xcode - HaloAPI/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.daniel.quarrell.Xcode---HaloAPI";
+				PRODUCT_BUNDLE_IDENTIFIER = com.daniel.quarrell.XcodeHaloAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

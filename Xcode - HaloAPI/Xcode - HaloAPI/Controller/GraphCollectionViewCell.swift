@@ -85,7 +85,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
             legend.textColor = UIColor.black
             legend.form = .circle
             
-            let textSize = legend.getMaximumEntrySize(withFont: pieChartView.legend.font)
+            //let textSize = legend.getMaximumEntrySize(withFont: pieChartView.legend.font)
             
             legendOffset = 0
             //legendOffset = -((textSize.height * CGFloat(pieChartView.legend.entries.count)) / 2)

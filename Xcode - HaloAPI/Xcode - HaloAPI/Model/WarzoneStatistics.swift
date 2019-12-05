@@ -1,8 +1,8 @@
 //
-//  ArenaStatistics.swift
+//  WarzoneStatistics.swift
 //  Xcode - HaloAPI
 //
-//  Created by Daniel Quarrell on 30/11/2019.
+//  Created by Daniel Quarrell on 04/12/2019.
 //  Copyright © 2019 Daniel Quarrell. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import Foundation
 import Charts
 import SwiftyJSON
 
-class ArenaStatistics {
+class WarzoneStatistics {
     
     let KDA_graph = StatisticGraph()
     let accuracy_graph = StatisticGraph()
@@ -20,9 +20,9 @@ class ArenaStatistics {
     
     var tableStatistics = [[Statistic]]()
     
-    public func getArenaData (completion: @escaping () -> ()) {
-        HaloApiInterface.sharedInstance.getArenaJsonStatistics(completion: {(json) in
-
+    public func getWarzoneData (completion: @escaping () -> ()) {
+        HaloApiInterface.sharedInstance.getWarzoneJsonStatistics(completion: {(json) in
+            
             self.getKDA_Data(json: json)
             self.getAccuracy_Data(json: json)
             self.getMatchResult_Data(json: json)
@@ -35,9 +35,9 @@ class ArenaStatistics {
     
     private func getKDA_Data(json: JSON){
         
-        let totalKills = json["Results"][0]["Result"]["ArenaStats"]["TotalKills"].intValue
-        let totalDeaths = json["Results"][0]["Result"]["ArenaStats"]["TotalDeaths"].intValue
-        let totalAssists = json["Results"][0]["Result"]["ArenaStats"]["TotalAssists"].intValue
+        let totalKills = json["Results"][0]["Result"]["WarzoneStat"]["TotalKills"].intValue
+        let totalDeaths = json["Results"][0]["Result"]["WarzoneStat"]["TotalDeaths"].intValue
+        let totalAssists = json["Results"][0]["Result"]["WarzoneStat"]["TotalAssists"].intValue
         
         var KDA_stats: [Statistic] = Array()
         KDA_stats.append(Statistic(name:"Total Kills", value: Float(totalKills)))
@@ -54,10 +54,10 @@ class ArenaStatistics {
     
     private func getWeaponCombat_Data(json: JSON) {
         
-        let headshotKills = json["Results"][0]["Result"]["ArenaStats"]["TotalHeadshots"].intValue
-        let powerWeaponKills = json["Results"][0]["Result"]["ArenaStats"]["TotalPowerWeaponKills"].intValue
-        let grenadeKills = json["Results"][0]["Result"]["ArenaStats"]["TotalGrenadeKills"].intValue
-        let vehicleKills = json["Results"][0]["Result"]["ArenaStats"]["DestroyedEnemyVehicles"][0]["TotalKills"].intValue
+        let headshotKills = json["Results"][0]["Result"]["WarzoneStat"]["TotalHeadshots"].intValue
+        let powerWeaponKills = json["Results"][0]["Result"]["WarzoneStat"]["TotalPowerWeaponKills"].intValue
+        let grenadeKills = json["Results"][0]["Result"]["WarzoneStat"]["TotalGrenadeKills"].intValue
+        let vehicleKills = json["Results"][0]["Result"]["WarzoneStat"]["DestroyedEnemyVehicles"][0]["TotalKills"].intValue
         
         var weaponCombat_stats: [Statistic] = Array()
         weaponCombat_stats.append(Statistic(name:"Headshot Kills", value: Float(headshotKills)))
@@ -72,9 +72,9 @@ class ArenaStatistics {
     }
     
     private func getAccuracy_Data(json: JSON) {
-        let shotsFired = json["Results"][0]["Result"]["ArenaStats"]["TotalShotsFired"].intValue
-        let shotsLanded = json["Results"][0]["Result"]["ArenaStats"]["TotalShotsLanded"].intValue
-        let totalWeaponDamage = json["Results"][0]["Result"]["ArenaStats"]["TotalWeaponDamage"].doubleValue
+        let shotsFired = json["Results"][0]["Result"]["WarzoneStat"]["TotalShotsFired"].intValue
+        let shotsLanded = json["Results"][0]["Result"]["WarzoneStat"]["TotalShotsLanded"].intValue
+        let totalWeaponDamage = json["Results"][0]["Result"]["WarzoneStat"]["TotalWeaponDamage"].doubleValue
         
         var accuracy_stats: [Statistic] = Array()
         accuracy_stats.append(Statistic(name:"Total Shots Fired", value: Float(shotsFired)))
@@ -91,10 +91,10 @@ class ArenaStatistics {
     
     private func getPhysicalCombat_Data(json: JSON) {
         
-        let totalMeleeKills = json["Results"][0]["Result"]["ArenaStats"]["TotalMeleeKills"].intValue
-        let totalAssassinations = json["Results"][0]["Result"]["ArenaStats"]["TotalAssassinations"].intValue
-        let totalGroundPoundKills = json["Results"][0]["Result"]["ArenaStats"]["TotalGroundPoundKills"].intValue
-        let totalShoulderBashKills = json["Results"][0]["Result"]["ArenaStats"]["TotalShoulderBashKills"].intValue
+        let totalMeleeKills = json["Results"][0]["Result"]["WarzoneStat"]["TotalMeleeKills"].intValue
+        let totalAssassinations = json["Results"][0]["Result"]["WarzoneStat"]["TotalAssassinations"].intValue
+        let totalGroundPoundKills = json["Results"][0]["Result"]["WarzoneStat"]["TotalGroundPoundKills"].intValue
+        let totalShoulderBashKills = json["Results"][0]["Result"]["WarzoneStat"]["TotalShoulderBashKills"].intValue
         
         var physicalCombat_stats: [Statistic] = Array()
         physicalCombat_stats.append(Statistic(name:"Melee Kills", value: Float(totalMeleeKills)))
@@ -110,9 +110,9 @@ class ArenaStatistics {
     
     private func getMatchResult_Data(json: JSON) {
         
-        let totalGamesWon = json["Results"][0]["Result"]["ArenaStats"]["TotalGamesWon"].intValue
-        let totalGamesLost = json["Results"][0]["Result"]["ArenaStats"]["TotalGamesLost"].intValue
-        let totalGamesTied = json["Results"][0]["Result"]["ArenaStats"]["TotalGamesTied"].intValue
+        let totalGamesWon = json["Results"][0]["Result"]["WarzoneStat"]["TotalGamesWon"].intValue
+        let totalGamesLost = json["Results"][0]["Result"]["WarzoneStat"]["TotalGamesLost"].intValue
+        let totalGamesTied = json["Results"][0]["Result"]["WarzoneStat"]["TotalGamesTied"].intValue
         
         var matchResults_stats: [Statistic] = Array()
         matchResults_stats.append(Statistic(name:"Total Games Won", value: Float(totalGamesWon)))
@@ -122,8 +122,8 @@ class ArenaStatistics {
         self.matchResults_graph.createPieChartData(chartData: matchResults_stats)
         self.matchResults_graph.title = "Match Results"
         
-        let totalGamesCompleted = json["Results"][0]["Result"]["ArenaStats"]["TotalGamesCompleted"].intValue
-        let timePlayedValue = json["Results"][0]["Result"]["ArenaStats"]["TotalTimePlayed"].stringValue
+        let totalGamesCompleted = json["Results"][0]["Result"]["WarzoneStat"]["TotalGamesCompleted"].intValue
+        let timePlayedValue = json["Results"][0]["Result"]["WarzoneStat"]["TotalTimePlayed"].stringValue
         var timePlayedArray = timePlayedValue.components(separatedBy: ".")
         var timePlayedString = timePlayedArray[0]
         timePlayedString = timePlayedString.replacingOccurrences(of: "P", with: "")
@@ -153,7 +153,3 @@ class ArenaStatistics {
         return tableStatistics[index]
     }
 }
-
-
-
-
