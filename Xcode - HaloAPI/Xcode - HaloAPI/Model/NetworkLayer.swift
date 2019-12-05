@@ -18,9 +18,12 @@ class HaloApiInterface {
     
     let baseProfileURL : String = "https://www.haloapi.com/profile/h5/profiles/"
     let baseStatURL : String = "https://www.haloapi.com/stats/h5/"
+    let baseMetadataURL : String = "https://www.haloapi.com/metadata/h5/metadata/"
     let serviceRecordURL : String = "servicerecords/"
     let arenaURL : String = "arena?players="
     let warzoneURL : String = "warzone?players="
+    let csrDesignations : String = "csr-designations"
+    let spartanRanks : String = "spartan-ranks"
     
     let headers : HTTPHeaders = [
         "Ocp-Apim-Subscription-Key" : "0bf9c5f6ddc64f7c8e34262bfd326b33"
@@ -58,8 +61,8 @@ class HaloApiInterface {
         }
     }
     
-    private func getJsonStatistics(modeURL: String, completion: @escaping (_ Json: JSON) -> ()) {
-        let url = baseStatURL + serviceRecordURL + modeURL + playerName
+    private func getJsonStatistics(statURL: String, completion: @escaping (_ Json: JSON) -> ()) {
+        let url = statURL
         
         AF.request(url, headers: headers).responseJSON{ (response) in
             //debugPrint(response)
@@ -81,18 +84,25 @@ class HaloApiInterface {
                 
             case .failure(let error):
                 print("Error : \(error)" )
+                completion(JSON())
             }
         }
     }
     
+    public func getProfileJson(completion: @escaping (_ Json: JSON) -> ()) {
+        getJsonStatistics(statURL: baseProfileURL + playerName + "/appearance") {(json) in
+            completion(json)
+        }
+    }
+    
     public func getArenaJsonStatistics(completion: @escaping (_ Json: JSON) -> ()) {
-        getJsonStatistics(modeURL: arenaURL) {(json) in
+        getJsonStatistics(statURL: baseStatURL + serviceRecordURL + arenaURL + playerName) {(json) in
             completion(json)
         }
     }
     
     public func getWarzoneJsonStatistics(completion: @escaping (_ Json: JSON) -> ()) {
-        getJsonStatistics(modeURL: warzoneURL) {(json) in
+        getJsonStatistics(statURL: baseStatURL + serviceRecordURL + warzoneURL + playerName) {(json) in
             completion(json)
         }
     }
@@ -111,9 +121,26 @@ class HaloApiInterface {
                 
             case .failure(let error):
                 print("Error : \(error)" )
+                completion(UIImage())
             }
         }
     }
+    
+    private func fetchRawImage(imageURL: String, completion: @escaping (_ image: UIImage) -> ()) {
+        
+        AF.request(imageURL).responseData{ (response) in
+            switch response.result{
+            case .success :
+                let img = UIImage.init(data: response.data!)
+                completion(img!)
+                
+            case .failure(let error):
+                print("Error : \(error)" )
+                completion(UIImage())
+            }
+        }
+    }
+    
     
     public func fetchSpartanImage(param: [String:Any], completion: @escaping (_ spartanImage: UIImage) -> ())
     {
@@ -132,6 +159,30 @@ class HaloApiInterface {
         
         fetchImage(imageURL: imageURL, param: param) { (emblemImage) in
             completion(emblemImage)
+        }
+    }
+    
+    public func fetchCsrDesignation(desingnationId: Int, completion: @escaping (_ csrName: String, _ csrImage: UIImage) -> ())
+    {
+        getJsonStatistics(statURL: baseMetadataURL + csrDesignations) {(json) in
+            
+            let csrName = json[desingnationId]["name"].stringValue
+            let imageURL = json[desingnationId]["tiers"][0]["iconImageUrl"].stringValue
+            
+            self.fetchRawImage(imageURL: imageURL) { (csrImage) in
+                completion(csrName, csrImage)
+            }
+        }
+    }
+    
+    public func getXpToNextRank(rank: Int, completion: @escaping (_ xpNeeded: Int) -> ())
+    {
+        let url = baseMetadataURL + spartanRanks
+        
+        getJsonStatistics(statURL: url) {(json) in
+            
+            let startXp = json[rank + 1]["startXp"].intValue
+            completion(startXp)
         }
     }
 }

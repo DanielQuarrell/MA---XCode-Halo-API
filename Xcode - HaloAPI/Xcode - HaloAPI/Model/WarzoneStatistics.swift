@@ -35,7 +35,7 @@ class WarzoneStatistics {
     
     private func getKDA_Data(json: JSON){
         
-        let totalKills = json["Results"][0]["Result"]["WarzoneStat"]["TotalKills"].intValue
+        let totalKills = json["Results"][0]["Result"]["WarzoneStat"]["TotalSpartanKills"].intValue
         let totalDeaths = json["Results"][0]["Result"]["WarzoneStat"]["TotalDeaths"].intValue
         let totalAssists = json["Results"][0]["Result"]["WarzoneStat"]["TotalAssists"].intValue
         

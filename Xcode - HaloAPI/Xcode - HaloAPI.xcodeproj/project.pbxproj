@@ -22,6 +22,8 @@
 		F7200DAB2391A333009C5916 /* StatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7200DA92391A333009C5916 /* StatTableViewCell.xib */; };
 		F7200DAD2391CBA7009C5916 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7200DAC2391CBA7009C5916 /* Statistic.swift */; };
 		F73EAFC1237B5521007238F2 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73EAFC0237B5521007238F2 /* NetworkLayer.swift */; };
+		F75380D6239923750009F4CF /* ProfileStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75380D5239923750009F4CF /* ProfileStatistics.swift */; };
+		F75380D823994DB40009F4CF /* CsrRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75380D723994DB40009F4CF /* CsrRank.swift */; };
 		F7616936238B2E600087C9A9 /* GraphCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7616935238B2E600087C9A9 /* GraphCollectionViewCell.swift */; };
 		F7616938238B307A0087C9A9 /* StatisticGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7616937238B307A0087C9A9 /* StatisticGraph.swift */; };
 		F766050323840BBD0074B83B /* Stats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F766050223840BBD0074B83B /* Stats.storyboard */; };
@@ -81,6 +83,8 @@
 		F7200DA92391A333009C5916 /* StatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatTableViewCell.xib; sourceTree = "<group>"; };
 		F7200DAC2391CBA7009C5916 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
 		F73EAFC0237B5521007238F2 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		F75380D5239923750009F4CF /* ProfileStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileStatistics.swift; sourceTree = "<group>"; };
+		F75380D723994DB40009F4CF /* CsrRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CsrRank.swift; sourceTree = "<group>"; };
 		F7616935238B2E600087C9A9 /* GraphCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7616937238B307A0087C9A9 /* StatisticGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticGraph.swift; sourceTree = "<group>"; };
 		F766050223840BBD0074B83B /* Stats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stats.storyboard; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 				F7200DAC2391CBA7009C5916 /* Statistic.swift */,
 				F71CBF6D2392F254003F7B95 /* ArenaStatistics.swift */,
 				F7AA99072398573E0034E327 /* WarzoneStatistics.swift */,
+				F75380D5239923750009F4CF /* ProfileStatistics.swift */,
+				F75380D723994DB40009F4CF /* CsrRank.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -488,7 +494,9 @@
 				F784C91B238809860041E0B3 /* WarzoneViewController.swift in Sources */,
 				F7616936238B2E600087C9A9 /* GraphCollectionViewCell.swift in Sources */,
 				F7072A6D235622DA0074F827 /* AppDelegate.swift in Sources */,
+				F75380D6239923750009F4CF /* ProfileStatistics.swift in Sources */,
 				F71CBF6E2392F254003F7B95 /* ArenaStatistics.swift in Sources */,
+				F75380D823994DB40009F4CF /* CsrRank.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +24,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CF1-kc-wb4" userLabel="Top View" customClass="GradiantView" customModule="Xcode___HaloAPI" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CF1-kc-wb4" userLabel="Top View">
                                 <rect key="frame" x="0.0" y="20" width="375" height="299"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9gB-g8-8py" userLabel="Logo Image">
@@ -35,6 +36,10 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zGG-uO-hnD" userLabel="Spartan Image">
                                         <rect key="frame" x="112.5" y="0.0" width="262.5" height="299"/>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQO-SV-6b0" customClass="GradiantView" customModule="Xcode___HaloAPI" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="299"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gamertag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fJ-B0-4t1" userLabel="Gamertag Label">
                                         <rect key="frame" x="16" y="257.5" width="120" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -48,19 +53,34 @@
                                     <constraint firstItem="3fJ-B0-4t1" firstAttribute="leading" secondItem="CF1-kc-wb4" secondAttribute="leadingMargin" constant="8" id="8dV-zs-wGG"/>
                                     <constraint firstItem="zGG-uO-hnD" firstAttribute="top" secondItem="CF1-kc-wb4" secondAttribute="top" id="GpG-CR-1CU"/>
                                     <constraint firstAttribute="trailing" secondItem="zGG-uO-hnD" secondAttribute="trailing" id="Jo7-4p-79A"/>
+                                    <constraint firstItem="xQO-SV-6b0" firstAttribute="top" secondItem="CF1-kc-wb4" secondAttribute="top" id="PDb-od-4Kl"/>
                                     <constraint firstItem="9gB-g8-8py" firstAttribute="width" secondItem="CF1-kc-wb4" secondAttribute="width" multiplier="0.3" id="RNc-TA-AtP"/>
                                     <constraint firstAttribute="bottom" secondItem="zGG-uO-hnD" secondAttribute="bottom" id="bte-8g-veo"/>
+                                    <constraint firstAttribute="trailing" secondItem="xQO-SV-6b0" secondAttribute="trailing" id="cF6-jD-jkj"/>
                                     <constraint firstItem="9gB-g8-8py" firstAttribute="top" secondItem="CF1-kc-wb4" secondAttribute="top" constant="8" id="eKJ-3v-k1G"/>
+                                    <constraint firstAttribute="bottom" secondItem="xQO-SV-6b0" secondAttribute="bottom" id="rNd-ai-ZiX"/>
                                     <constraint firstItem="zGG-uO-hnD" firstAttribute="width" secondItem="CF1-kc-wb4" secondAttribute="width" multiplier="0.7" id="z4U-4N-F71"/>
+                                    <constraint firstItem="xQO-SV-6b0" firstAttribute="leading" secondItem="CF1-kc-wb4" secondAttribute="leading" id="zM6-eA-FZv"/>
                                     <constraint firstItem="9gB-g8-8py" firstAttribute="leading" secondItem="CF1-kc-wb4" secondAttribute="leading" constant="8" id="zQb-mj-oXR"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JxJ-Tj-Gsb" userLabel="Bottom View">
                                 <rect key="frame" x="0.0" y="319" width="375" height="299"/>
+                                <subviews>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="xAc-Mx-sTz">
+                                        <rect key="frame" x="112" y="43" width="167" height="2"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="progressTintColor" name="LightBlue"/>
+                                    </progressView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ0-s2-kZ7">
+                                        <rect key="frame" x="135" y="163" width="240" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.45803225917028723" green="1" blue="0.60262775729388318" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.23137254901960785" blue="0.017936446980932452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JxJ-Tj-Gsb" firstAttribute="height" secondItem="zLT-CO-kiz" secondAttribute="height" multiplier="0.5" id="R5E-4y-ILZ"/>
                             <constraint firstItem="CF1-kc-wb4" firstAttribute="height" secondItem="zLT-CO-kiz" secondAttribute="height" multiplier="0.5" id="ad9-tV-j2Q"/>
@@ -76,7 +96,10 @@
                     <tabBarItem key="tabBarItem" title="Profile" image="ProfileGlyph" id="5PQ-0E-LBO"/>
                     <navigationItem key="navigationItem" title="Profile" id="3ga-ue-qfZ"/>
                     <connections>
-                        <outlet property="TopView" destination="CF1-kc-wb4" id="GxG-U1-lIl"/>
+                        <outlet property="csrboi" destination="ZJ0-s2-kZ7" id="fbS-Gz-4WV"/>
+                        <outlet property="gamertagLabel" destination="3fJ-B0-4t1" id="CH8-6S-5Lp"/>
+                        <outlet property="gradientView" destination="xQO-SV-6b0" id="gyW-Ho-fc7"/>
+                        <outlet property="levelProgressView" destination="xAc-Mx-sTz" id="1Wt-Xj-fgi"/>
                         <outlet property="logoImage" destination="9gB-g8-8py" id="xWb-sk-DX7"/>
                         <outlet property="spartanImage" destination="zGG-uO-hnD" id="wMp-yf-Moi"/>
                     </connections>
@@ -372,5 +395,8 @@
         <image name="ArenaGlyph" width="30.5" height="24"/>
         <image name="ProfileGlyph" width="31" height="21"/>
         <image name="WarzoneGlyph" width="29" height="24"/>
+        <namedColor name="LightBlue">
+            <color red="0.20000000000000001" green="0.76078431372549016" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
