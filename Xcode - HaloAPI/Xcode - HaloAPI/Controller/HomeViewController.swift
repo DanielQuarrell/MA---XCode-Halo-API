@@ -15,7 +15,9 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var gamertagField: UITextField!
     @IBOutlet weak var haloImage: UIImageView!
     
-    var gamertagString : String = ""
+    var gamertagString: String = ""
+    
+    var activityIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,11 @@ class HomeViewController: UIViewController {
         gamertagField.delegate = self
         
         haloImage.image = haloImage.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
-        haloImage.tintColor = UIColor(named: "LightBlue")
+        haloImage.tintColor = UIColor.lightGray
+        
+        activityIndicatorView.center = self.view.center
+        activityIndicatorView.hidesWhenStopped = true
+        view.addSubview(activityIndicatorView)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,6 +50,9 @@ class HomeViewController: UIViewController {
         gamertagField.resignFirstResponder()
         let gamertag : String = gamertagField.text!
         
+        activityIndicatorView.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         HaloApiInterface.sharedInstance.validateGamertag(gamertag: gamertag){ (isValid, errorCode) in
             if isValid
             {
@@ -53,6 +62,9 @@ class HomeViewController: UIViewController {
             {
                 self.createValidationAlertBox(errorCode: errorCode)
             }
+            
+            self.activityIndicatorView.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
         }
     }
     

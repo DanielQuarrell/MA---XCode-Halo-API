@@ -29,6 +29,8 @@ class WarzoneViewController: UIViewController {
     var pieChartDataEntries = [PieChartDataEntry]()
     var barChartDataSets = [BarChartDataSet]()
     
+    var activityIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView()
+    
     var currentPage: Int = 0 {
         didSet {
             self.updateViews(index: self.currentPage)
@@ -39,8 +41,18 @@ class WarzoneViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        activityIndicatorView.center = self.view.center
+        activityIndicatorView.hidesWhenStopped = true
+        view.addSubview(activityIndicatorView)
+        
+        activityIndicatorView.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         warzoneStatistics.getWarzoneData(completion: {
             self.setUpPage()
+            
+            self.activityIndicatorView.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
         })
     }
     
@@ -157,6 +169,6 @@ extension WarzoneViewController: UITableViewDataSource {
 
 extension WarzoneViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / 4
+        return tableView.frame.height / 3
     }
 }

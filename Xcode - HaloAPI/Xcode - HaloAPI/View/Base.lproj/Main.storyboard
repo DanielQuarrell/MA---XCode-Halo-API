@@ -31,8 +31,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your Xbox Live Gamertag" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqR-T8-2OP">
-                                                <rect key="frame" x="0.0" y="29" width="375" height="93"/>
-                                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="0.0" y="58" width="375" height="93"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="93" id="DB3-QL-bDm"/>
                                                 </constraints>
@@ -43,9 +43,9 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="CqR-T8-2OP" firstAttribute="centerY" secondItem="eAj-bU-6h2" secondAttribute="centerY" id="ElT-Pd-v40"/>
                                             <constraint firstAttribute="trailing" secondItem="CqR-T8-2OP" secondAttribute="trailing" id="Yus-jW-Ris"/>
                                             <constraint firstItem="CqR-T8-2OP" firstAttribute="leading" secondItem="eAj-bU-6h2" secondAttribute="leading" id="nIi-Oq-IIQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="CqR-T8-2OP" secondAttribute="bottom" id="vRS-nU-dMt"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fi6-9h-mjL" userLabel="Bottom View">
@@ -55,25 +55,38 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gamertag" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lJ1-kG-KDm" userLabel="Text Field: Gamertag">
-                                                        <rect key="frame" x="16" y="22.5" width="343" height="30"/>
-                                                        <nil key="textColor"/>
+                                                        <rect key="frame" x="94" y="22.5" width="187.5" height="30"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="lJ1-kG-KDm" secondAttribute="trailing" constant="16" id="OVs-eS-f4E"/>
+                                                    <constraint firstItem="lJ1-kG-KDm" firstAttribute="width" secondItem="FZl-Dr-wbd" secondAttribute="width" multiplier="0.5" id="QN0-Cn-ZgC"/>
+                                                    <constraint firstItem="lJ1-kG-KDm" firstAttribute="centerX" secondItem="FZl-Dr-wbd" secondAttribute="centerX" id="TKc-9b-t0o"/>
                                                     <constraint firstItem="lJ1-kG-KDm" firstAttribute="centerY" secondItem="FZl-Dr-wbd" secondAttribute="centerY" id="aRT-HO-fwx"/>
-                                                    <constraint firstItem="lJ1-kG-KDm" firstAttribute="leading" secondItem="FZl-Dr-wbd" secondAttribute="leading" constant="16" id="cLz-A0-9yb"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOo-VR-vyb" userLabel="Bottom View">
                                                 <rect key="frame" x="0.0" y="75" width="375" height="75.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw6-v7-1v8">
-                                                        <rect key="frame" x="146" y="23" width="83" height="30"/>
-                                                        <state key="normal" title="Check Stats"/>
+                                                        <rect key="frame" x="123.5" y="22" width="128" height="32"/>
+                                                        <color key="backgroundColor" name="DarkCyan"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="128" id="c6q-Cc-nVb"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="20"/>
+                                                        <state key="normal" title="Check Stats">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="checkStatsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gmA-WP-JG4"/>
                                                         </connections>
@@ -81,8 +94,8 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="lw6-v7-1v8" firstAttribute="centerX" secondItem="ZOo-VR-vyb" secondAttribute="centerX" id="Nsv-M3-lve"/>
                                                     <constraint firstItem="lw6-v7-1v8" firstAttribute="centerY" secondItem="ZOo-VR-vyb" secondAttribute="centerY" id="Wb5-9A-5k8"/>
+                                                    <constraint firstItem="lw6-v7-1v8" firstAttribute="centerX" secondItem="ZOo-VR-vyb" secondAttribute="centerX" id="vTN-3I-sz2"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -171,7 +184,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="HaloSpartan" width="643" height="877"/>
+        <image name="HaloSpartan" width="321.5" height="438.5"/>
+        <namedColor name="DarkCyan">
+            <color red="0.0" green="0.38823529411764707" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="DarkGrey">
             <color red="0.078431372549019607" green="0.11764705882352941" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

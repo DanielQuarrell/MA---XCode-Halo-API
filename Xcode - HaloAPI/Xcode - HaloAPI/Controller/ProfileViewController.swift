@@ -24,19 +24,26 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var csrImageView: UIImageView!
     
-    var profileStatistics = ProfileStatistics()
+    var profileStatistics: ProfileStatistics = ProfileStatistics()
+    var activityIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         levelProgressView.transform = levelProgressView.transform.scaledBy(x: 1, y: 5)
         
+        activityIndicatorView.center = self.view.center
+        activityIndicatorView.hidesWhenStopped = true
+        view.addSubview(activityIndicatorView)
+        
+        activityIndicatorView.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
         profileStatistics.getProfileData(completion: {
             
             self.gamertagLabel.text = String(self.profileStatistics.gamertag)
             self.serviceTagLabel.text = String(self.profileStatistics.serviceTag)
             self.spartanRankValue.text = String(self.profileStatistics.spartanRank)
-            
             
             self.levelProgressView.progress = Float(self.profileStatistics.xp) / Float(self.profileStatistics.xpToNextRank)
             self.xpLabel.text = String(self.profileStatistics.xp) + "/" + String(self.profileStatistics.xpToNextRank) + "XP"
@@ -50,6 +57,9 @@ class ProfileViewController: UIViewController {
                 {
                     self.csrRankLabel.text = "Invalid"
                 }
+                
+                self.activityIndicatorView.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
             })
         })
         
