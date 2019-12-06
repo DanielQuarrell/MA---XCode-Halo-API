@@ -6,9 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nexa Bold.otf">
+            <string>NexaBold</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,64 +24,132 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pyX-3o-1VF">
-                                <rect key="frame" x="87" y="338" width="201" height="309"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter your Xbox Live Gamertag" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqR-T8-2OP">
-                                <rect key="frame" x="0.0" y="94" width="375" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw6-v7-1v8">
-                                <rect key="frame" x="16" y="217" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Check Stats"/>
-                                <connections>
-                                    <action selector="checkStatsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gmA-WP-JG4"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gamertag" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lJ1-kG-KDm" userLabel="Text Field: Gamertag">
-                                <rect key="frame" x="16" y="166" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zil-lT-ouF" userLabel="Change Storyboard">
-                                <rect key="frame" x="120" y="275" width="134" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Change Storyboard"/>
-                                <connections>
-                                    <segue destination="e3V-vv-zTE" kind="show" id="DFO-bZ-epT"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMX-ph-53h" userLabel="Top View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="301.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eAj-bU-6h2" userLabel="Top View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your Xbox Live Gamertag" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqR-T8-2OP">
+                                                <rect key="frame" x="0.0" y="29" width="375" height="93"/>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="93" id="DB3-QL-bDm"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="28"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="CqR-T8-2OP" firstAttribute="centerY" secondItem="eAj-bU-6h2" secondAttribute="centerY" id="ElT-Pd-v40"/>
+                                            <constraint firstAttribute="trailing" secondItem="CqR-T8-2OP" secondAttribute="trailing" id="Yus-jW-Ris"/>
+                                            <constraint firstItem="CqR-T8-2OP" firstAttribute="leading" secondItem="eAj-bU-6h2" secondAttribute="leading" id="nIi-Oq-IIQ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fi6-9h-mjL" userLabel="Bottom View">
+                                        <rect key="frame" x="0.0" y="151" width="375" height="150.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZl-Dr-wbd" userLabel="Top View">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gamertag" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lJ1-kG-KDm" userLabel="Text Field: Gamertag">
+                                                        <rect key="frame" x="16" y="22.5" width="343" height="30"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="lJ1-kG-KDm" secondAttribute="trailing" constant="16" id="OVs-eS-f4E"/>
+                                                    <constraint firstItem="lJ1-kG-KDm" firstAttribute="centerY" secondItem="FZl-Dr-wbd" secondAttribute="centerY" id="aRT-HO-fwx"/>
+                                                    <constraint firstItem="lJ1-kG-KDm" firstAttribute="leading" secondItem="FZl-Dr-wbd" secondAttribute="leading" constant="16" id="cLz-A0-9yb"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOo-VR-vyb" userLabel="Bottom View">
+                                                <rect key="frame" x="0.0" y="75" width="375" height="75.5"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lw6-v7-1v8">
+                                                        <rect key="frame" x="146" y="23" width="83" height="30"/>
+                                                        <state key="normal" title="Check Stats"/>
+                                                        <connections>
+                                                            <action selector="checkStatsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gmA-WP-JG4"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="lw6-v7-1v8" firstAttribute="centerX" secondItem="ZOo-VR-vyb" secondAttribute="centerX" id="Nsv-M3-lve"/>
+                                                    <constraint firstItem="lw6-v7-1v8" firstAttribute="centerY" secondItem="ZOo-VR-vyb" secondAttribute="centerY" id="Wb5-9A-5k8"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="FZl-Dr-wbd" firstAttribute="leading" secondItem="Fi6-9h-mjL" secondAttribute="leading" id="1Vn-cn-jzt"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZOo-VR-vyb" secondAttribute="trailing" id="8aS-pZ-24s"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZOo-VR-vyb" secondAttribute="bottom" id="AC3-m1-J6e"/>
+                                            <constraint firstItem="ZOo-VR-vyb" firstAttribute="leading" secondItem="Fi6-9h-mjL" secondAttribute="leading" id="RMR-WX-Fza"/>
+                                            <constraint firstAttribute="trailing" secondItem="FZl-Dr-wbd" secondAttribute="trailing" id="Uvx-6A-Hp9"/>
+                                            <constraint firstItem="ZOo-VR-vyb" firstAttribute="height" secondItem="Fi6-9h-mjL" secondAttribute="height" multiplier="0.5" id="Wtw-Ui-s4u"/>
+                                            <constraint firstItem="FZl-Dr-wbd" firstAttribute="top" secondItem="Fi6-9h-mjL" secondAttribute="top" id="dzh-R1-jOv"/>
+                                            <constraint firstItem="FZl-Dr-wbd" firstAttribute="height" secondItem="Fi6-9h-mjL" secondAttribute="height" multiplier="0.5" id="nhD-Dz-FBf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="eAj-bU-6h2" firstAttribute="leading" secondItem="dMX-ph-53h" secondAttribute="leading" id="1jD-5N-gCM"/>
+                                    <constraint firstAttribute="trailing" secondItem="eAj-bU-6h2" secondAttribute="trailing" id="AF8-7g-L9C"/>
+                                    <constraint firstItem="Fi6-9h-mjL" firstAttribute="height" secondItem="dMX-ph-53h" secondAttribute="height" multiplier="0.5" id="ApO-EZ-EEI"/>
+                                    <constraint firstItem="Fi6-9h-mjL" firstAttribute="leading" secondItem="dMX-ph-53h" secondAttribute="leading" id="Bwd-0H-SRo"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fi6-9h-mjL" secondAttribute="bottom" id="kj1-ws-W13"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fi6-9h-mjL" secondAttribute="trailing" id="n5P-bS-6Q5"/>
+                                    <constraint firstItem="eAj-bU-6h2" firstAttribute="height" secondItem="dMX-ph-53h" secondAttribute="height" multiplier="0.5" id="rTW-0T-lYT"/>
+                                    <constraint firstItem="eAj-bU-6h2" firstAttribute="top" secondItem="dMX-ph-53h" secondAttribute="top" id="ypZ-Wm-mfu"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="smM-3G-FBp" userLabel="Bottom View">
+                                <rect key="frame" x="0.0" y="365.5" width="375" height="301.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="HaloSpartan" translatesAutoresizingMaskIntoConstraints="NO" id="pyX-3o-1VF">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="pyX-3o-1VF" firstAttribute="top" secondItem="smM-3G-FBp" secondAttribute="top" id="4Yu-hd-GVP"/>
+                                    <constraint firstAttribute="bottom" secondItem="pyX-3o-1VF" secondAttribute="bottom" id="cLJ-SB-9Kr"/>
+                                    <constraint firstAttribute="trailing" secondItem="pyX-3o-1VF" secondAttribute="trailing" id="jRC-gn-4ZT"/>
+                                    <constraint firstItem="pyX-3o-1VF" firstAttribute="leading" secondItem="smM-3G-FBp" secondAttribute="leading" id="nTG-iG-unW"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="DarkGrey"/>
+                        <constraints>
+                            <constraint firstItem="dMX-ph-53h" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.5" id="Dhh-Cs-GPN"/>
+                            <constraint firstItem="dMX-ph-53h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HsB-Ce-syd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="smM-3G-FBp" secondAttribute="bottom" id="S6g-xh-G3v"/>
+                            <constraint firstItem="smM-3G-FBp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XbZ-4L-MAL"/>
+                            <constraint firstItem="smM-3G-FBp" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.5" id="amf-2d-ahj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="smM-3G-FBp" secondAttribute="trailing" id="gyG-pk-nzR"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dMX-ph-53h" secondAttribute="trailing" id="m1Q-ep-wFg"/>
+                            <constraint firstItem="dMX-ph-53h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rb6-6l-ehH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="VdA-bU-hU2"/>
                     <connections>
                         <outlet property="gamertagField" destination="lJ1-kG-KDm" id="2Ab-XT-0Jv"/>
-                        <outlet property="spartanImage" destination="pyX-3o-1VF" id="scl-ug-lNV"/>
+                        <outlet property="haloImage" destination="pyX-3o-1VF" id="MBE-hJ-g8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="51.724137931034484"/>
-        </scene>
-        <!--Stats Tab Controller-->
-        <scene sceneID="qcw-sC-Yhv">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Stats" referencedIdentifier="Stats Tab Controller" id="e3V-vv-zTE" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="iCa-2t-eIB"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="XHV-fE-Qto" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1531.2" y="50.374812593703155"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JBJ-WN-yru">
@@ -96,4 +170,10 @@
             <point key="canvasLocation" x="53.600000000000001" y="51.724137931034484"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="HaloSpartan" width="643" height="877"/>
+        <namedColor name="DarkGrey">
+            <color red="0.078431372549019607" green="0.11764705882352941" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

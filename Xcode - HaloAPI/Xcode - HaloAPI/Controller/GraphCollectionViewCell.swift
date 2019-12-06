@@ -54,7 +54,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
             let dataSet = PieChartDataSet(entries: chartDataEntries, label: "")
             
             let c1 = UIColor(hex: "#0091D5FF")
-            let c2 = UIColor(hex: "#EA6A47FF")
+            let c2 = UIColor(hex: "#FFA500FF")
             let c3 = UIColor(hex: "#7E909AFF")
             let c4 = UIColor(hex: "#A5D8DDFF")
             let c5 = UIColor(hex: "#F1F1F1FF")
@@ -82,7 +82,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
             legend.yEntrySpace = 5
             legend.horizontalAlignment = .left
             legend.verticalAlignment = .center
-            legend.textColor = UIColor.black
+            legend.textColor = UIColor.white
             legend.form = .circle
             
             //let textSize = legend.getMaximumEntrySize(withFont: pieChartView.legend.font)
@@ -109,7 +109,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
             let chartData = BarChartData()
             
             let c1 = UIColor(hex: "#0091D5FF")
-            let c2 = UIColor(hex: "#EA6A47FF")
+            let c2 = UIColor(hex: "#FFA500FF")
             let c3 = UIColor(hex: "#7E909AFF")
             let c4 = UIColor(hex: "#A5D8DDFF")
             let c5 = UIColor(hex: "#F1F1F1FF")
@@ -120,7 +120,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
             for i in 0..<chartDataSets.count {
                 let dataSet = chartDataSets[i]
                 
-                dataSet.colors = [colors[i]] as! [NSUIColor]
+                dataSet.colors = [colors[i]]
                 dataSet.drawValuesEnabled = false
                 chartData.addDataSet(dataSet)
             }
@@ -139,7 +139,8 @@ class GraphCollectionViewCell : UICollectionViewCell{
             barChartView.xAxis.drawAxisLineEnabled = false
             barChartView.xAxis.drawLabelsEnabled = false
             barChartView.xAxis.drawGridLinesEnabled = false
-            
+            barChartView.leftAxis.drawLabelsEnabled = false
+            barChartView.rightAxis.labelTextColor = UIColor.white
             barChartView.legend.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: customFont)
             
             let legend = barChartView.legend
@@ -147,7 +148,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
             legend.yEntrySpace = 5
             legend.horizontalAlignment = .left
             legend.verticalAlignment = .center
-            legend.textColor = UIColor.black
+            legend.textColor = UIColor.white
             legend.form = .circle
             legend.maxSizePercent = 0.5
             

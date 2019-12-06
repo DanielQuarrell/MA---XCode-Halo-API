@@ -13,7 +13,7 @@ import SwiftyJSON
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var gamertagField: UITextField!
-    @IBOutlet weak var spartanImage: UIImageView!
+    @IBOutlet weak var haloImage: UIImageView!
     
     var gamertagString : String = ""
     
@@ -21,6 +21,9 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         gamertagField.delegate = self
+        
+        haloImage.image = haloImage.image!.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        haloImage.tintColor = UIColor(named: "LightBlue")
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,20 +47,21 @@ class HomeViewController: UIViewController {
         HaloApiInterface.sharedInstance.validateGamertag(gamertag: gamertag){ (isValid, errorCode) in
             if isValid
             {
-                HaloApiInterface.sharedInstance.fetchSpartanImage(param: ["size" : 512, "crop" : "full"]){ (image) in
-                    self.spartanImage.image = image
-                }
-                //Continue to next page
+                self.changeStoryboard()
             }
             else
             {
                 self.createValidationAlertBox(errorCode: errorCode)
             }
         }
-        
-
     }
     
+    func changeStoryboard() {
+        let storyboard = UIStoryboard(name: "Stats", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "Stats Tab Controller") as UIViewController
+        show(vc, sender: self)
+    }
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         gamertagField.resignFirstResponder()
     }

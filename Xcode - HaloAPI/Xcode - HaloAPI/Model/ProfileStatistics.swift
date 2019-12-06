@@ -52,11 +52,18 @@ class ProfileStatistics {
         }
     }
     
-    public func getHighestCsr(completion: @escaping () -> ()) {
-        HaloApiInterface.sharedInstance.fetchCsrDesignation(desingnationId: self.designationId, completion: {(csrName, csrImage) in
-            
-            self.highestCSR = CsrRank(rankName: csrName, rankImage: csrImage)
-            completion()
-        })
+    public func getHighestCsr(completion: @escaping (_ hasCsr: Bool) -> ()) {
+        if(designationId != nil)
+        {
+            HaloApiInterface.sharedInstance.fetchCsrDesignation(desingnationId: self.designationId, completion: {(csrName, csrImage) in
+                
+                self.highestCSR = CsrRank(rankName: csrName, rankImage: csrImage)
+                completion(true)
+            })
+        }
+        else
+        {
+            completion(false)
+        }
     }
 }

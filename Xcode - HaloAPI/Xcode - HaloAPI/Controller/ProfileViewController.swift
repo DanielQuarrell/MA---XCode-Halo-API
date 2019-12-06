@@ -15,9 +15,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var spartanImage: UIImageView!
     
     @IBOutlet weak var gamertagLabel: UILabel!
+    @IBOutlet weak var serviceTagLabel: UILabel!
+    @IBOutlet weak var spartanRankValue: UILabel!
+    @IBOutlet weak var csrRankLabel: UILabel!
+    @IBOutlet weak var xpLabel: UILabel!
+    
     @IBOutlet weak var levelProgressView: UIProgressView!
     
-    @IBOutlet weak var csrboi: UIImageView!
+    @IBOutlet weak var csrImageView: UIImageView!
     
     var profileStatistics = ProfileStatistics()
     
@@ -28,10 +33,23 @@ class ProfileViewController: UIViewController {
         
         profileStatistics.getProfileData(completion: {
             
-            self.gamertagLabel.text = String(self.profileStatistics.spartanRank)
+            self.gamertagLabel.text = String(self.profileStatistics.gamertag)
+            self.serviceTagLabel.text = String(self.profileStatistics.serviceTag)
+            self.spartanRankValue.text = String(self.profileStatistics.spartanRank)
             
-            self.profileStatistics.getHighestCsr(completion: {
-                self.csrboi.image = self.profileStatistics.highestCSR.rankImage
+            
+            self.levelProgressView.progress = Float(self.profileStatistics.xp) / Float(self.profileStatistics.xpToNextRank)
+            self.xpLabel.text = String(self.profileStatistics.xp) + "/" + String(self.profileStatistics.xpToNextRank) + "XP"
+            
+            self.profileStatistics.getHighestCsr(completion: { hasCsr in
+                if(hasCsr) {
+                    self.csrRankLabel.text = self.profileStatistics.highestCSR.rankName
+                    self.csrImageView.image = self.profileStatistics.highestCSR.rankImage
+                }
+                else
+                {
+                    self.csrRankLabel.text = "Invalid"
+                }
             })
         })
         

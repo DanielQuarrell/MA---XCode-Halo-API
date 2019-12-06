@@ -9,6 +9,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Nexa Bold.otf">
+            <string>NexaBold</string>
+        </array>
+        <array key="Nexa Light.otf">
+            <string>NexaLight</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -25,17 +33,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wBc-f3-ZRE">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="33"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right Statistic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSZ-mY-Mc7">
-                                        <rect key="frame" x="0.0" y="12.5" width="160" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right Statistic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSZ-mY-Mc7">
+                                        <rect key="frame" x="0.0" y="11" width="160" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="5jJ-ZG-fEw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="uSZ-mY-Mc7" firstAttribute="leading" secondItem="wBc-f3-ZRE" secondAttribute="leading" id="0ml-0c-TFJ"/>
-                                    <constraint firstAttribute="bottom" secondItem="uSZ-mY-Mc7" secondAttribute="bottom" id="7YF-ML-E9J"/>
+                                    <constraint firstAttribute="bottom" secondItem="uSZ-mY-Mc7" secondAttribute="bottom" id="9kZ-wE-roO"/>
                                     <constraint firstAttribute="trailing" secondItem="uSZ-mY-Mc7" secondAttribute="trailing" id="JLL-0G-AjG"/>
                                 </constraints>
                             </view>
@@ -43,10 +54,10 @@
                                 <rect key="frame" x="0.0" y="33" width="160" height="32.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RkK-YJ-Mwi" userLabel="Right Value">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="17"/>
+                                        <fontDescription key="fontDescription" name="NexaLight" family="Nexa Light" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,16 +86,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGU-9d-gmU">
                                 <rect key="frame" x="0.0" y="0.0" width="160" height="33"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Statistic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8B-dQ-4bc">
-                                        <rect key="frame" x="0.0" y="12.5" width="160" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Left Statistic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="J8B-dQ-4bc">
+                                        <rect key="frame" x="0.0" y="11" width="160" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="gD0-In-Oii"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NexaBold" family="Nexa Bold" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="J8B-dQ-4bc" secondAttribute="bottom" id="Ef6-jG-FQE"/>
+                                    <constraint firstAttribute="bottom" secondItem="J8B-dQ-4bc" secondAttribute="bottom" id="Hxa-LI-w81"/>
                                     <constraint firstAttribute="trailing" secondItem="J8B-dQ-4bc" secondAttribute="trailing" id="f3s-Sm-9Yh"/>
                                     <constraint firstItem="J8B-dQ-4bc" firstAttribute="leading" secondItem="NGU-9d-gmU" secondAttribute="leading" id="zPM-dq-hfe"/>
                                 </constraints>
@@ -93,10 +107,10 @@
                                 <rect key="frame" x="0.0" y="33" width="160" height="32.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfE-4t-q1c" userLabel="Left Value">
-                                        <rect key="frame" x="0.0" y="0.0" width="160" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="17"/>
+                                        <fontDescription key="fontDescription" name="NexaLight" family="Nexa Light" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

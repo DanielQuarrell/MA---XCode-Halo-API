@@ -126,11 +126,15 @@ class WarzoneStatistics {
         let timePlayedValue = json["Results"][0]["Result"]["WarzoneStat"]["TotalTimePlayed"].stringValue
         var timePlayedArray = timePlayedValue.components(separatedBy: ".")
         var timePlayedString = timePlayedArray[0]
-        timePlayedString = timePlayedString.replacingOccurrences(of: "P", with: "")
-        timePlayedString = timePlayedString.replacingOccurrences(of: "T", with: "")
-        timePlayedString = String(timePlayedString.prefix(timePlayedString.count - 2))
-        timePlayedString = timePlayedString.replacingOccurrences(of: "D", with: "D ")
-        timePlayedString = timePlayedString.replacingOccurrences(of: "H", with: "H ")
+        if(timePlayedString != "") {
+            timePlayedString = timePlayedString.replacingOccurrences(of: "P", with: "")
+            timePlayedString = timePlayedString.replacingOccurrences(of: "T", with: "")
+            timePlayedString = String(timePlayedString.prefix(timePlayedString.count - 2))
+            timePlayedString = timePlayedString.replacingOccurrences(of: "D", with: "D ")
+            timePlayedString = timePlayedString.replacingOccurrences(of: "H", with: "H ")
+        } else {
+            timePlayedString = "0S"
+        }
         
         matchResults_stats.append(Statistic(name:"Win / Loss Ratio", value: Float(totalGamesWon) / Float(totalGamesLost), isFloat: true))
         matchResults_stats.append(Statistic(name:"Total Time Played", valueString: timePlayedString))
