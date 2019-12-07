@@ -17,7 +17,6 @@ class TabBarController: UITabBarController {
         self.selectedIndex = 0
         setNavigationBarTitle()
         
-        
         HaloApiInterface.sharedInstance.fetchEmblemImage(param: ["size" : 95]) { (logoImage) in
             let playerLogo : UIBarButtonItem = UIBarButtonItem()
             playerLogo.image = logoImage.withRenderingMode(.alwaysOriginal)
@@ -46,15 +45,15 @@ extension TabBarController: UITabBarControllerDelegate {
 final class TabBarAnimatedTransitioning: NSObject, UIViewControllerAnimatedTransitioning {
 
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        guard let destination = transitionContext.view(forKey: UITransitionContextViewKey.to) else { return }
+        guard let transitionView = transitionContext.view(forKey: UITransitionContextViewKey.to) else { return }
         
-        destination.alpha = 0.0
-        destination.transform = .init(scaleX: 1.0, y: 1.0)
-        transitionContext.containerView.addSubview(destination)
+        transitionView.alpha = 0.0
+        transitionView.transform = .init(scaleX: 1.0, y: 1.0)
+        transitionContext.containerView.addSubview(transitionView)
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
-            destination.alpha = 1.0
-            destination.transform = .identity
+            transitionView.alpha = 1.0
+            transitionView.transform = .identity
         }, completion: { transitionContext.completeTransition($0) })
     }
     

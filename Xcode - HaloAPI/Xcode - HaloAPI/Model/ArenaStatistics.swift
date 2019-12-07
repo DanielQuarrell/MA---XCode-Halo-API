@@ -21,6 +21,7 @@ class ArenaStatistics {
     var tableStatistics = [[Statistic]]()
     
     public func getArenaData (completion: @escaping () -> ()) {
+        
         HaloApiInterface.sharedInstance.getArenaJsonStatistics(completion: {(json) in
 
             self.getKDA_Data(json: json)
@@ -72,6 +73,7 @@ class ArenaStatistics {
     }
     
     private func getAccuracy_Data(json: JSON) {
+        
         let shotsFired = json["Results"][0]["Result"]["ArenaStats"]["TotalShotsFired"].intValue
         let shotsLanded = json["Results"][0]["Result"]["ArenaStats"]["TotalShotsLanded"].intValue
         let totalWeaponDamage = json["Results"][0]["Result"]["ArenaStats"]["TotalWeaponDamage"].doubleValue
@@ -83,7 +85,7 @@ class ArenaStatistics {
         self.accuracy_graph.createBarChartData(chartData: accuracy_stats)
         self.accuracy_graph.title = "Weapon Accuracy"
         
-        accuracy_stats.append(Statistic(name:"Accuracy", value: Float(shotsFired) / Float(shotsLanded), isFloat: true))
+        accuracy_stats.append(Statistic(name:"Accuracy", value: Float(shotsLanded) / Float(shotsFired), isFloat: true))
         accuracy_stats.append(Statistic(name:"Total Weapon Damage", value: Float(totalWeaponDamage)))
         
         self.tableStatistics.append(accuracy_stats)
@@ -138,12 +140,13 @@ class ArenaStatistics {
         
         matchResults_stats.append(Statistic(name:"Win / Loss Ratio", value: Float(totalGamesWon) / Float(totalGamesLost), isFloat: true))
         matchResults_stats.append(Statistic(name:"Total Time Played", valueString: timePlayedString))
-        matchResults_stats.append(Statistic(name:"Total Games Completed", value: Float(totalGamesCompleted)))
+        matchResults_stats.append(Statistic(name:"Games Completed", value: Float(totalGamesCompleted)))
         
         self.tableStatistics.append(matchResults_stats)
     }
     
     public func getGraphs() -> [StatisticGraph] {
+        
         return [
             KDA_graph,
             accuracy_graph,

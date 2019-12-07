@@ -111,9 +111,9 @@ class GraphCollectionViewCell : UICollectionViewCell{
             let c1 = UIColor(hex: "#0091D5FF")
             let c2 = UIColor(hex: "#FFA500FF")
             let c3 = UIColor(hex: "#7E909AFF")
-            let c4 = UIColor(hex: "#A5D8DDFF")
+            let c4 = UIColor(hex: "#2F7052FF")
             let c5 = UIColor(hex: "#F1F1F1FF")
-            let c6 = UIColor(hex: "#1F3F49FF")
+            let c6 = UIColor(hex: "#A5D8DDFF")
             
             let colors = [c1, c2, c3, c4, c5, c6] as! [NSUIColor]
             
@@ -150,7 +150,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
             legend.verticalAlignment = .center
             legend.textColor = UIColor.white
             legend.form = .circle
-            legend.maxSizePercent = 0.5
+            legend.maxSizePercent = 0.8
             
             barChartView.animate(xAxisDuration: 3, yAxisDuration: 3)
             

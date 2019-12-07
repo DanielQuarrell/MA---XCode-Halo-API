@@ -145,7 +145,7 @@
                         <constraints>
                             <constraint firstItem="dMX-ph-53h" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.5" id="Dhh-Cs-GPN"/>
                             <constraint firstItem="dMX-ph-53h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="HsB-Ce-syd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="smM-3G-FBp" secondAttribute="bottom" id="S6g-xh-G3v"/>
+                            <constraint firstAttribute="bottom" secondItem="smM-3G-FBp" secondAttribute="bottom" id="S6g-xh-G3v"/>
                             <constraint firstItem="smM-3G-FBp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XbZ-4L-MAL"/>
                             <constraint firstItem="smM-3G-FBp" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.5" id="amf-2d-ahj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="smM-3G-FBp" secondAttribute="trailing" id="gyG-pk-nzR"/>

@@ -22,6 +22,7 @@ class ProfileStatistics {
     var highestCSR: CsrRank!
     
     public func getProfileData (completion: @escaping () -> ()) {
+        
         let group = DispatchGroup()
         group.enter()
         HaloApiInterface.sharedInstance.getProfileJson(completion: {(json) in
@@ -53,6 +54,7 @@ class ProfileStatistics {
     }
     
     public func getHighestCsr(completion: @escaping (_ hasCsr: Bool) -> ()) {
+        
         if(designationId != nil)
         {
             HaloApiInterface.sharedInstance.fetchCsrDesignation(desingnationId: self.designationId, completion: {(csrName, csrImage) in
