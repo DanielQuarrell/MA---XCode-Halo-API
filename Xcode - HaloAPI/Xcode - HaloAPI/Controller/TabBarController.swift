@@ -14,9 +14,11 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         delegate = self
         
+        //Set the tab bar to profile view
         self.selectedIndex = 0
         setNavigationBarTitle()
         
+        //Fetch the player logo and attach it to the navigation bar
         HaloApiInterface.sharedInstance.fetchEmblemImage(param: ["size" : 95]) { (logoImage) in
             let playerLogo : UIBarButtonItem = UIBarButtonItem()
             playerLogo.image = logoImage.withRenderingMode(.alwaysOriginal)
@@ -27,6 +29,7 @@ class TabBarController: UITabBarController {
     }
     
     func setNavigationBarTitle(){
+        //Set the navigation bar title to the tab bar item
         self.title = self.tabBar.items![self.selectedIndex].title
     }
 }
@@ -34,10 +37,12 @@ class TabBarController: UITabBarController {
 extension TabBarController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, animationControllerForTransitionFrom fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        //Animate the new view
         return TabBarAnimatedTransitioning()
     }
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        //Update navigation bar title when the tab view changes
         setNavigationBarTitle()
     }
 }
@@ -47,10 +52,12 @@ final class TabBarAnimatedTransitioning: NSObject, UIViewControllerAnimatedTrans
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard let transitionView = transitionContext.view(forKey: UITransitionContextViewKey.to) else { return }
         
+        //Start values of the transitioning view
         transitionView.alpha = 0.0
         transitionView.transform = .init(scaleX: 1.0, y: 1.0)
         transitionContext.containerView.addSubview(transitionView)
         
+        //End values of transitioning view
         UIView.animate(withDuration: transitionDuration(using: transitionContext), animations: {
             transitionView.alpha = 1.0
             transitionView.transform = .identity

@@ -17,23 +17,22 @@ class StatTableViewCell: UITableViewCell {
     
     static let identifier = "StatTableViewCell"
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
     var leftStatistic: Statistic! {
         didSet {
+            //Update cell elements with statistic data
             if let leftStatistic = leftStatistic {
                 leftStat.text = leftStatistic.name
                 
                 if(leftStatistic.value == nil) {
+                    //Display stored string
                     leftValue.text = leftStatistic.valueString
                 }
                 else if (leftStatistic.isFloat!){
+                    //Display float to 2 decimal places
                     leftValue.text = String(format: "%.2f", leftStatistic.value!)
                 }
                 else {
+                    //Display value with no descimal places
                     leftValue.text = String(format: "%.0f", leftStatistic.value!)
                 }
                 
@@ -46,16 +45,20 @@ class StatTableViewCell: UITableViewCell {
     
     var rightStatistic: Statistic! {
         didSet {
+            //Update cell elements with statistic data
             if let rightStatistic = rightStatistic {
                 rightStat.text = rightStatistic.name
                 
                 if(rightStatistic.value == nil) {
+                    //Display stored string
                     rightValue.text = rightStatistic.valueString
                 }
                 else if (rightStatistic.isFloat!) {
+                    //Display float to 2 decimal places
                     rightValue.text = String(format: "%.2f", rightStatistic.value!)
                 }
                 else {
+                    //Display value with no descimal places
                     rightValue.text = String(format: "%.0f", rightStatistic.value!)
                 }
             } else {

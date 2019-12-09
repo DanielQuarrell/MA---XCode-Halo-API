@@ -16,6 +16,7 @@ class CsrRank {
     var rankImage: UIImage?
     
     init(rankName: String? = nil, rankImage: UIImage? = nil){
+        //Initialise data
         self.rankName = rankName
         self.rankImage = rankImage
     }

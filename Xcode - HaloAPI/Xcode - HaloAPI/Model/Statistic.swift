@@ -16,6 +16,8 @@ class Statistic {
     var isFloat : Bool?
     
     init(name: String? = nil, value: Float? = nil, valueString: String? = nil, isFloat: Bool? = false){
+        
+        //Initialise data
         self.name = name
         self.value = value
         self.valueString = valueString

@@ -31,23 +31,27 @@ class WarzoneViewController: UIViewController {
     
     var activityIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView()
     
-    var currentPage: Int = 0 {
+    var currentGraphIndex: Int = 0 {
         didSet {
-            self.updateViews(index: self.currentPage)
-            self.pageControl.currentPage = self.currentPage
+            //Update view when variable is set
+            self.updateViews(index: self.currentGraphIndex)
+            self.pageControl.currentPage = self.currentGraphIndex
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Create and position activity indicator in the center of the screen
         activityIndicatorView.center = self.view.center
         activityIndicatorView.hidesWhenStopped = true
         view.addSubview(activityIndicatorView)
         
+        //Indicator to show that calls to the network are being made
         activityIndicatorView.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
         
+        //Update view elements with API data
         warzoneStatistics.getWarzoneData(completion: {
             self.setUpPage()
             
@@ -60,15 +64,20 @@ class WarzoneViewController: UIViewController {
         setupCollectionView()
         setupTableView()
         
+        //Fill collection view with graphs created from API data
         carouselGraphs = warzoneStatistics.getGraphs()
+        //Update the table view to display information relervant to the first graph
         self.updateViews(index: 0)
         
+        //Update the number of pages the page control shows
         pageControl.numberOfPages = carouselGraphs.count
-        currentPage = 0
+        currentGraphIndex = 0
     }
     
     func setupCollectionView() {
+        //Force top view to update contraints
         topView.layoutIfNeeded()
+        //Set carousel cell size based on the size of the top view
         let viewSize = topView.bounds.size
         let cellWidth = floor(viewSize.width * cellXScale)
         let cellHeight = floor(viewSize.height * cellYScale)
@@ -85,8 +94,8 @@ class WarzoneViewController: UIViewController {
     }
     
     func setupTableView() {
+        //Create table view cell from the .xib view prototype
         let nib = UINib(nibName: "StatTableViewCell", bundle: nil)
-        
         statTableView.dataSource = self
         statTableView.delegate = self
         statTableView.register(nib, forCellReuseIdentifier: "StatTableViewCell")
@@ -94,6 +103,7 @@ class WarzoneViewController: UIViewController {
     
     func updateViews(index: Int) {
         if(index >= 0 && index < carouselGraphs.count) {
+            //Update title and table view based on carousel index
             graphTitlelabel.text = self.carouselGraphs[index].title
             tableStatistics = warzoneStatistics.getTableAtIndex(index: index)
             statTableView.reloadData()
@@ -102,11 +112,13 @@ class WarzoneViewController: UIViewController {
 }
 
 extension WarzoneViewController : UICollectionViewDataSource{
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        //Set number of cells in the carousel to the number of graphs created
         return carouselGraphs.count
     }
     
@@ -114,6 +126,7 @@ extension WarzoneViewController : UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GraphCollectionViewCell.identifier, for: indexPath) as! GraphCollectionViewCell
         let graph = carouselGraphs[indexPath.item]
         
+        //Populate new cell with graph at corresponding index
         cell.graph = graph
         
         return cell
@@ -121,6 +134,7 @@ extension WarzoneViewController : UICollectionViewDataSource{
 }
 
 extension WarzoneViewController : UIScrollViewDelegate, UICollectionViewDelegate{
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let layout = self.graphCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         let cellWidth = layout.itemSize.width + layout.minimumLineSpacing
@@ -131,6 +145,8 @@ extension WarzoneViewController : UIScrollViewDelegate, UICollectionViewDelegate
         
         offset = CGPoint(x: roundedIndex * cellWidth - scrollView.contentInset.left, y: scrollView.contentInset.top)
         
+        //Set carousel offset based on the position the user stops dragging
+        //This makes sure a graph is always in focus
         targetContentOffset.pointee = offset
     }
     
@@ -138,23 +154,29 @@ extension WarzoneViewController : UIScrollViewDelegate, UICollectionViewDelegate
         let layout = self.graphCollectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         let pageSide = layout.itemSize.width
         let pageOffset = scrollView.contentOffset.x
-        currentPage = Int(floor((pageOffset - pageSide / 2) / pageSide) + 1)
+        
+        //Set graph index based on the position of the scroll view inside the carousel
+        currentGraphIndex = Int(floor((pageOffset - pageSide / 2) / pageSide) + 1)
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GraphCollectionViewCell.identifier, for: indexPath) as! GraphCollectionViewCell
+        //Update legend position when cell comes into view (fix positioning errors)
         cell.updateLegends()
     }
 }
 
 extension WarzoneViewController: UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //Set number of cells in the table view to half the number of statistics
         return Int(tableStatistics.count / 2)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StatTableViewCell.identifier, for: indexPath) as! StatTableViewCell
         
+        //Create cell with 2 sets of statistics
         let index = indexPath.row * 2
         
         let leftStatistic = tableStatistics[index]
@@ -168,7 +190,9 @@ extension WarzoneViewController: UITableViewDataSource {
 }
 
 extension WarzoneViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        //Set table cell height to be a third of view height
         return tableView.frame.height / 3
     }
 }

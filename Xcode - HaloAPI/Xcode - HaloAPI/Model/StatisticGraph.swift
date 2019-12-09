@@ -16,6 +16,8 @@ class StatisticGraph {
     var barChartData: [BarChartDataSet]?
     
     init(title: String? = nil, pieChartData: [PieChartDataEntry]? = [PieChartDataEntry](), barChartData: [BarChartDataSet]? = [BarChartDataSet]()){
+        
+        //Initialise data
         self.title = title
         self.pieChartData = pieChartData
         self.barChartData = barChartData
@@ -24,10 +26,12 @@ class StatisticGraph {
     func createPieChartData(chartData: [Statistic]) {
         var pieChartDataEntries: [PieChartDataEntry] = Array()
         
+        //Convert statistics array into pie chart data entries
         for i in 0..<chartData.count {
             pieChartDataEntries.append(PieChartDataEntry(value: Double(chartData[i].value!), label: chartData[i].name))
         }
         
+        //Save data to class
         self.pieChartData = pieChartDataEntries
     }
     
@@ -35,6 +39,7 @@ class StatisticGraph {
         
         var barChartDataSets: [BarChartDataSet] = Array()
         
+        //Convert statistics array into bar chart data sets
         for i in 0..<chartData.count {
             var dataSet: [BarChartDataEntry] = Array()
             dataSet.append(BarChartDataEntry(x: Double(i), y: Double(chartData[i].value!)))
@@ -42,6 +47,7 @@ class StatisticGraph {
             barChartDataSets.append(BarChartDataSet(entries: dataSet, label: chartData[i].name))
         }
         
+        //Save data to class
         self.barChartData = barChartDataSets
     }
 }

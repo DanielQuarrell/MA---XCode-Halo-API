@@ -19,11 +19,13 @@ class GraphCollectionViewCell : UICollectionViewCell{
     
     var graph: StatisticGraph! {
         didSet {
+            //Update cell when changed
             self.updateUI()
         }
     }
     
     func updateUI() {
+        //If chart data exists, create the appropiate graph
         if let graph = graph {
             if graph.pieChartData != nil {
                 setUpPieChart(chartDataEntries: graph.pieChartData!)
@@ -42,17 +44,22 @@ class GraphCollectionViewCell : UICollectionViewCell{
     
     func setUpPieChart(chartDataEntries: [PieChartDataEntry]){
         
+        //Display graph only if data exists
         if(chartDataEntries.count > 0) {
             
+            //Set up pie chart visuals
             pieChartView.isHidden = false
             pieChartView.chartDescription?.enabled = false
             pieChartView.drawHoleEnabled = true
             pieChartView.rotationAngle = 0
             pieChartView.drawEntryLabelsEnabled = false
             pieChartView.isUserInteractionEnabled = false
+            pieChartView.holeColor = UIColor(hex: "#00000000")
             
+            //Fill the pie chart with data
             let dataSet = PieChartDataSet(entries: chartDataEntries, label: "")
             
+            //Set colours for the data set
             let c1 = UIColor(hex: "#0091D5FF")
             let c2 = UIColor(hex: "#FFA500FF")
             let c3 = UIColor(hex: "#006803FF")
@@ -63,8 +70,10 @@ class GraphCollectionViewCell : UICollectionViewCell{
             dataSet.colors = [c1, c2, c3, c4, c5, c6] as! [NSUIColor]
             dataSet.drawValuesEnabled = false
             
+            //Assign the data with colours to the view
             pieChartView.data = PieChartData(dataSet: dataSet)
             
+            //Load the custom font into the legend
             guard let customFont = UIFont(name: "Nexa Light", size: UIFont.labelFontSize) else
             {
                 fatalError("""
@@ -74,8 +83,8 @@ class GraphCollectionViewCell : UICollectionViewCell{
                 )
             }
             
+            //Set legend position and visuals
             pieChartView.legend.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: customFont)
-            pieChartView.holeColor = UIColor(hex: "#00000000")
             
             let legend = pieChartView.legend
             legend.orientation = .vertical
@@ -85,14 +94,12 @@ class GraphCollectionViewCell : UICollectionViewCell{
             legend.textColor = UIColor.white
             legend.form = .circle
             
-            //let textSize = legend.getMaximumEntrySize(withFont: pieChartView.legend.font)
-            
             legendOffset = 0
-            //legendOffset = -((textSize.height * CGFloat(pieChartView.legend.entries.count)) / 2)
             legend.yOffset = legendOffset
             
             legend.maxSizePercent = 0.5
             
+            //Play animation on creation
             pieChartView.animate(xAxisDuration: 3, yAxisDuration: 3)
             
         } else {
@@ -103,11 +110,13 @@ class GraphCollectionViewCell : UICollectionViewCell{
     
     func setUpBarChart(chartDataSets: [BarChartDataSet]){
         
+        //Display graph only if data exists
         if(chartDataSets.count > 0) {
             barChartView.isHidden = false
             
             let chartData = BarChartData()
             
+            //Set colours for the data set
             let c1 = UIColor(hex: "#0091D5FF")
             let c2 = UIColor(hex: "#FFA500FF")
             let c3 = UIColor(hex: "#8C0085FF")
@@ -117,6 +126,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
             
             let colors = [c1, c2, c3, c4, c5, c6] as! [NSUIColor]
             
+            //For each statistic, create a new bar on the bar chart
             for i in 0..<chartDataSets.count {
                 let dataSet = chartDataSets[i]
                 
@@ -125,8 +135,10 @@ class GraphCollectionViewCell : UICollectionViewCell{
                 chartData.addDataSet(dataSet)
             }
             
+            //Assign the data with colours to the view
             barChartView.data = chartData
             
+            //Load the custom font into the legend
             guard let customFont = UIFont(name: "Nexa Light", size: UIFont.labelFontSize) else
             {
                 fatalError("""
@@ -136,6 +148,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
                 )
             }
             
+            //Set up bar chart visuals
             barChartView.xAxis.drawAxisLineEnabled = false
             barChartView.xAxis.drawLabelsEnabled = false
             barChartView.xAxis.drawGridLinesEnabled = false
@@ -143,6 +156,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
             barChartView.rightAxis.labelTextColor = UIColor.white
             barChartView.legend.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: customFont)
             
+            //Set legend position and visuals
             let legend = barChartView.legend
             legend.orientation = .vertical
             legend.yEntrySpace = 5
@@ -152,6 +166,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
             legend.form = .circle
             legend.maxSizePercent = 0.8
             
+            //Play animation on creation
             barChartView.animate(xAxisDuration: 3, yAxisDuration: 3)
             
         } else {
@@ -161,6 +176,7 @@ class GraphCollectionViewCell : UICollectionViewCell{
     }
     
     func updateLegends(){
+        //Update legend position to original offset
         pieChartView.legend.yOffset = legendOffset
         barChartView.legend.yOffset = legendOffset
     }
