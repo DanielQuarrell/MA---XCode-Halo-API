@@ -177,6 +177,7 @@
 			children = (
 				F7CF92FF2388706800F324D2 /* Fonts */,
 				F784C91C238837DD0041E0B3 /* Extensions */,
+				F7157D57239C2A780091AABD /* Network */,
 				F7E776B5237AEFC300D650DE /* Model */,
 				F7E776B6237AEFDF00D650DE /* View */,
 				F7E776B7237AEFF900D650DE /* Controller */,
@@ -204,6 +205,14 @@
 			path = "Xcode - HaloAPIUITests";
 			sourceTree = "<group>";
 		};
+		F7157D57239C2A780091AABD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F73EAFC0237B5521007238F2 /* NetworkLayer.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		F784C91C238837DD0041E0B3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,7 +233,6 @@
 		F7E776B5237AEFC300D650DE /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F73EAFC0237B5521007238F2 /* NetworkLayer.swift */,
 				F7616937238B307A0087C9A9 /* StatisticGraph.swift */,
 				F7200DAC2391CBA7009C5916 /* Statistic.swift */,
 				F71CBF6D2392F254003F7B95 /* ArenaStatistics.swift */,

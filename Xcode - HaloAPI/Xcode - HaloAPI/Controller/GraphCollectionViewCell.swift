@@ -55,8 +55,8 @@ class GraphCollectionViewCell : UICollectionViewCell{
             
             let c1 = UIColor(hex: "#0091D5FF")
             let c2 = UIColor(hex: "#FFA500FF")
-            let c3 = UIColor(hex: "#7E909AFF")
-            let c4 = UIColor(hex: "#A5D8DDFF")
+            let c3 = UIColor(hex: "#006803FF")
+            let c4 = UIColor(hex: "#6B0065FF")
             let c5 = UIColor(hex: "#F1F1F1FF")
             let c6 = UIColor(hex: "#1F3F49FF")
             
@@ -110,8 +110,8 @@ class GraphCollectionViewCell : UICollectionViewCell{
             
             let c1 = UIColor(hex: "#0091D5FF")
             let c2 = UIColor(hex: "#FFA500FF")
-            let c3 = UIColor(hex: "#7E909AFF")
-            let c4 = UIColor(hex: "#2F7052FF")
+            let c3 = UIColor(hex: "#8C0085FF")
+            let c4 = UIColor(hex: "#007A04FF")
             let c5 = UIColor(hex: "#F1F1F1FF")
             let c6 = UIColor(hex: "#A5D8DDFF")
             
